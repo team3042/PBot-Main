@@ -64,6 +64,9 @@ public class Pixy2Line {
 	private final Pixy2 pixy;
 
 	private Vector[] vectors = null;
+	public Vector[] getVectors() {
+		return vectors;
+	}
 
 	private Intersection[] intersections = null;
 

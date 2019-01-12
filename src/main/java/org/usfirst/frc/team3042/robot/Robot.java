@@ -40,6 +40,7 @@ public class Robot extends IterativeRobot {
 	public static final Spinner 	spinner 	= (HAS_SPINNER) 	? new Spinner() 	: null;
 	public static final Gyroscope 	gyroscope 	= (HAS_GYROSCOPE) 	? new Gyroscope() 	: null;
 	public static final LightRing 	lightRing 	= (HAS_LIGHT_RING) 	? new LightRing() 	: null;
+	public static final lineTracker lineTracker = (HAS_LINE_PRINTER) ? new Line
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 
