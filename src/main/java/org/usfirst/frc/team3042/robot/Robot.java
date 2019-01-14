@@ -8,6 +8,7 @@ import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 import org.usfirst.frc.team3042.robot.subsystems.LightRing;
 import org.usfirst.frc.team3042.robot.subsystems.PanTilt;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
+import org.usfirst.frc.team3042.robot.subsystems.LineTracker;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -31,6 +32,7 @@ public class Robot extends IterativeRobot {
 	private static final boolean HAS_GYROSCOPE = RobotMap.HAS_GYROSCOPE;
 	private static final boolean HAS_LIGHT_RING = RobotMap.HAS_LIGHT_RING;
 	private static final boolean HAS_SPINNER = RobotMap.HAS_SPINNER;
+	private static final boolean HAS_LINE_TRACKER = RobotMap.HAS_LINE_TRACKER;
 	
 	
 	/** Create Subsystems *****************************************************/
@@ -40,7 +42,7 @@ public class Robot extends IterativeRobot {
 	public static final Spinner 	spinner 	= (HAS_SPINNER) 	? new Spinner() 	: null;
 	public static final Gyroscope 	gyroscope 	= (HAS_GYROSCOPE) 	? new Gyroscope() 	: null;
 	public static final LightRing 	lightRing 	= (HAS_LIGHT_RING) 	? new LightRing() 	: null;
-	public static final lineTracker lineTracker = (HAS_LINE_PRINTER) ? new Line
+	public static final LineTracker lineTracker = (HAS_LINE_TRACKER) ? new LineTracker()  : null;
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 

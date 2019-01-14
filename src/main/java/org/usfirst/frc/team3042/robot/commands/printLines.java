@@ -10,32 +10,37 @@ package org.usfirst.frc.team3042.robot.commands;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
+import org.usfirst.frc.team3042.robot.subsystems.LineTracker;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 
-public class printLines extends Command {
-/** Configuration Constants ***********************************************/
-private static final Log.Level LOG_LEVEL = RobotMap.LOG_LIGHT_RING;
+public class PrintLines extends Command {
+
+  /** Configuration Constants ***********************************************/
+  private static final Log.Level LOG_LEVEL = RobotMap.LOG_LINE_TRACKER;
 
   /** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
-  LightRing lightRing = Robot.lightRing;
-  
+  Log log = new Log(LOG_LEVEL, getName()); 
+  LineTracker lineTracker = Robot.lineTracker;
 
-  public printLines() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+  public PrintLines() {
+		log.add("Constructor", Log.Level.TRACE);
+		requires(lineTracker);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    log.add("Initialize", Log.Level.TRACE);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    log.add("Execute", Log.Level.TRACE);
+
+    lineTracker.printLines();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -47,6 +52,7 @@ private static final Log.Level LOG_LEVEL = RobotMap.LOG_LIGHT_RING;
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    log.add("End", Log.Level.TRACE);
   }
 
   // Called when another command which requires one or more of the same
