@@ -8,10 +8,6 @@
 package org.usfirst.frc.team3042.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc.team3042.lib.Log;
-import org.usfirst.frc.team3042.robot.Robot;
-import org.usfirst.frc.team3042.robot.RobotMap;
-import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team3042.lib.pixy2api.Pixy2;
 import org.usfirst.frc.team3042.lib.pixy2api.Pixy2.LinkType;
@@ -54,5 +50,12 @@ public class LineTracker extends Subsystem {
              SmartDashboard.putString("linePrinter", vector.toString());
          }
       }
+  }
+
+  public void followLine() {
+
+    // Follows the code from https://github.com/charmedlabs/pixy2/blob/master/src/host/arduino/libraries/Pixy2/examples/line_zumo_demo/line_zumo_demo.ino
+    // Will need to put put our own looping control in here since the Arduino example code
+    // loops already.  The key will be determining when to stop
   }
 }
