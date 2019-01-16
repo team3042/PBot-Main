@@ -7,8 +7,8 @@
 
 package org.usfirst.frc.team3042.robot.subsystems;
 
+import java.util.ArrayList;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
 import org.usfirst.frc.team3042.lib.pixy2api.Pixy2;
 import org.usfirst.frc.team3042.lib.pixy2api.Pixy2.LinkType;
 import org.usfirst.frc.team3042.lib.pixy2api.Pixy2Line.Vector;
@@ -31,7 +31,11 @@ public class LineTracker extends Subsystem {
       // change to the line_tracking program.  Note, changeProg can use partial strings, so for example,
       // you can change to the line_tracking program by calling changeProg("line") instead of the whole
       // string changeProg("line_tracking")
-      this.pixy.changeProg("line".toCharArray());
+      int result = this.pixy.changeProg("line".toCharArray());
+      if (result == Pixy2.PIXY_RESULT_ERROR) {
+        SmartDashboard.putString("linePrinter", "ERROR returned by pixy.changeProg");
+      }
+
   }
 
   @Override
@@ -44,12 +48,19 @@ public class LineTracker extends Subsystem {
 
   public void printLines()
   {        
-      this.pixy.getLine().getAllFeatures();
+      byte res = this.pixy.getLine().getAllFeatures();
+      SmartDashboard.putString("linePrinter", "getAllFeatures returned " + Integer.toHexString(res));
 
-      if (this.pixy.getLine().getVectors() != null)  {
-         for (Vector vector : this.pixy.getLine().getVectors()) {
-             SmartDashboard.putString("linePrinter", vector.toString());
-         }
+      Vector[] vectors = this.pixy.getLine().getVectors();
+      if (vectors != null) {
+
+        SmartDashboard.putString("linePrinter", "Vectors Found: " + vectors.length);
+        for (Vector vector : vectors) {
+            SmartDashboard.putString("linePrinter", vector.toString());
+        }
+        
+      } else {
+        SmartDashboard.putString("linePrinter", "***** vectors is null *****");
       }
   }
 

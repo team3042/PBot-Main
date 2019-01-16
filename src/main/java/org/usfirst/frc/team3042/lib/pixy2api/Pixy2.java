@@ -441,8 +441,13 @@ public class Pixy2 {
 
 		// poll for program to change
 		while (true) {
-			for (int i = 0; i < prog.length; i++) {
-				bufferPayload[i] = (byte) prog[i];
+			for (int i = 0; i < PIXY_MAX_PROGNAME; i++) {
+				if (i < prog.length) {
+					bufferPayload[i] = (byte) prog[i];
+				} else {
+					//clear any remaining characters in the buffer, this is similar to how strncpy in C++ works
+					bufferPayload[i] = Character.MIN_VALUE;
+				}
 			}
 			length = PIXY_MAX_PROGNAME;
 			type = PIXY_TYPE_REQUEST_CHANGE_PROG;
