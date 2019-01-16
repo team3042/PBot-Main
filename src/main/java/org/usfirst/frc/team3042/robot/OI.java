@@ -8,7 +8,7 @@ import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 import org.usfirst.frc.team3042.robot.commands.LightRing_On;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetPosition;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
-import org.usfirst.frc.team3042.robot.commands.PrintLines;
+import org.usfirst.frc.team3042.robot.commands.LineTracker_PrintLines;
 
 /** OI ************************************************************************
  * This class is the glue that binds the controls on the physical operator
@@ -73,7 +73,7 @@ public class OI {
 		/** PBOT Controls *****************************************************/
 		if (IS_PBOT) {
 			//gamepad.A.toggleWhenPressed(new LightRing_On());
-			gamepad.A.toggleWhenPressed(new PrintLines());
+			gamepad.A.toggleWhenPressed(new LineTracker_PrintLines());
 			gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
 			gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 			

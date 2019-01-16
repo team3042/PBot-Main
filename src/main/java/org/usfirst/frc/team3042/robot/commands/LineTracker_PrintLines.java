@@ -15,7 +15,7 @@ import org.usfirst.frc.team3042.robot.subsystems.LineTracker;
 import edu.wpi.first.wpilibj.command.Command;
 
 
-public class PrintLines extends Command {
+public class LineTracker_PrintLines extends Command {
 
   /** Configuration Constants ***********************************************/
   private static final Log.Level LOG_LEVEL = RobotMap.LOG_LINE_TRACKER;
@@ -24,7 +24,7 @@ public class PrintLines extends Command {
   Log log = new Log(LOG_LEVEL, getName()); 
   LineTracker lineTracker = Robot.lineTracker;
 
-  public PrintLines() {
+  public LineTracker_PrintLines() {
 		log.add("Constructor", Log.Level.TRACE);
 		requires(lineTracker);
   }

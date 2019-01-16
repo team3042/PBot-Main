@@ -26,6 +26,7 @@ public class LineTracker extends Subsystem {
       SmartDashboard.putString("linePrinter", "Starting...");
 
       this.pixy = Pixy2.createInstance(LinkType.SPI);
+      pixy.init(1);
       
       // change to the line_tracking program.  Note, changeProg can use partial strings, so for example,
       // you can change to the line_tracking program by calling changeProg("line") instead of the whole

@@ -441,7 +441,7 @@ public class Pixy2 {
 
 		// poll for program to change
 		while (true) {
-			for (int i = 0; i < PIXY_MAX_PROGNAME; i++) {
+			for (int i = 0; i < prog.length; i++) {
 				bufferPayload[i] = (byte) prog[i];
 			}
 			length = PIXY_MAX_PROGNAME;
