@@ -186,6 +186,9 @@ public class RobotMap {
 	/** LEDRing Settings ******************************************************/
 	public static final boolean HAS_LIGHT_RING = true;
 
+	/** LineTracker Settings ******************************************************/
+	public static final boolean HAS_LINE_TRACKER = true;
+
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
@@ -210,5 +213,6 @@ public class RobotMap {
 	public static final Log.Level 	LOG_PAN_TILT 				= Log.Level.TRACE;
 	public static final Log.Level	LOG_GYROSCOPE				= Log.Level.DEBUG;
 	public static final Log.Level	LOG_LIGHT_RING				= Log.Level.TRACE;
+	public static final Log.Level LOG_LINE_TRACKER			= Log.Level.TRACE;
 	public static final Log.Level	LOG_EXAMPLE_SUBSYSTEM 		= Log.Level.TRACE;
 }
