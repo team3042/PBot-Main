@@ -66,7 +66,7 @@ public class SPILink implements Link {
 		spi.setClockRate(PIXY_SPI_CLOCKRATE);
 		spi.setMSBFirst();
 		// spi.setSampleDataOnTrailingEdge();
-		spi.setSampleDataOnFalling();
+		spi.setSampleDataOnTrailingEdge();
 		spi.setClockActiveLow();
 		spi.setChipSelectActiveLow();
 		return 0;

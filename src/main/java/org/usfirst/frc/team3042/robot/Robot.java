@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.subsystems.PanTilt;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 import org.usfirst.frc.team3042.robot.subsystems.LineTracker;
 
-import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -19,12 +19,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /** Robot *********************************************************************
  * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
+ * functions corresponding to each mode, as described in the TimedRobot
  * documentation. If you change the name of this class or the package after
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot { 
+public class Robot extends TimedRobot { 
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_ROBOT;
 	private static final boolean HAS_DRIVETRAIN = RobotMap.HAS_DRIVETRAIN;
@@ -58,8 +58,8 @@ public class Robot extends IterativeRobot {
 		log.add("Robot Init", Log.Level.TRACE);
 		
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
-		chooser.addObject("My Auto", new ExampleCommand());
+		chooser.setDefaultOption("Default Auto", new ExampleCommand());
+		chooser.addOption("My Auto", new ExampleCommand());
 		SmartDashboard.putData("Auto Mode", chooser);
 	}
 
