@@ -7,7 +7,8 @@
 
 package org.usfirst.frc.team3042.robot.subsystems;
 
-import java.util.ArrayList;
+import org.usfirst.frc.team3042.lib.Log;
+import org.usfirst.frc.team3042.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team3042.lib.pixy2api.Pixy2;
 import org.usfirst.frc.team3042.lib.pixy2api.Pixy2.LinkType;
@@ -18,15 +19,19 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * Add your docs here.
  */
 public class LineTracker extends Subsystem {
+  /** Configuration Constants ***********************************************/
+  private static final Log.Level LOG_LEVEL = RobotMap.LOG_LINE_TRACKER;
+  private static final int PIXY_PORT = RobotMap.LINE_TRACKER_PIXY_PORT;
 
-  private Pixy2 pixy;
+  /** Instance Variables ****************************************************/
+	Log log = new Log(LOG_LEVEL, getName());
+  Pixy2 pixy;
   
-  public LineTracker()
-  {
-      SmartDashboard.putString("linePrinter", "Starting...");
+  public LineTracker() {
+      log.add("Constructor", LOG_LEVEL);
 
       this.pixy = Pixy2.createInstance(LinkType.SPI);
-      pixy.init(1);
+      pixy.init(PIXY_PORT);
       
       // change to the line_tracking program.  Note, changeProg can use partial strings, so for example,
       // you can change to the line_tracking program by calling changeProg("line") instead of the whole
@@ -46,8 +51,7 @@ public class LineTracker extends Subsystem {
 
   /** Command Controls ******************************************************/
 
-  public void printLines()
-  {        
+  public void printLines() {        
       byte res = this.pixy.getLine().getAllFeatures();
       SmartDashboard.putString("linePrinter", "getAllFeatures returned " + Integer.toHexString(res));
 
@@ -69,5 +73,10 @@ public class LineTracker extends Subsystem {
     // Follows the code from https://github.com/charmedlabs/pixy2/blob/master/src/host/arduino/libraries/Pixy2/examples/line_zumo_demo/line_zumo_demo.ino
     // Will need to put put our own looping control in here since the Arduino example code
     // loops already.  The key will be determining when to stop
+
+    //this will most likely not be a method, but rather it's own command that has
+    //its own IsFinished() and we will most likely use 
+    //the gyro turn to degree command (Drivetrain_GyroTurn) which takes angle in deg as a param
+    //possibly command group? TDB. 
   }
 }

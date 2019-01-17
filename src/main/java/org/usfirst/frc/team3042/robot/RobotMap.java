@@ -51,6 +51,12 @@ public class RobotMap {
 	/** PCM channels **********************************************************/
 	public static final int LIGHT_RING_CHANNEL = 1;
 	
+
+	/** SPI ports *************************************************************/
+	public static final int LINE_TRACKER_PIXY_PORT = (IS_PBOT)? 1: 1;
+	//note that the Gyroscope uses the myRIO Expansion Port (MXP) and is defined in the SPI class (edu.wpi.first.wpilibj.SPI)
+	//notes for dummies: the MXP is the big boy smack center of the RoboRio (where the gyro ALWAYS goes);
+	//see http://www.ni.com/pdf/manuals/374474a.pdf for additional info on the RoboRio
 	
 	/** OI Settings ***********************************************************/
 	public static final boolean USE_JOYSTICKS = !IS_PBOT;
@@ -188,7 +194,6 @@ public class RobotMap {
 
 	/** LineTracker Settings ******************************************************/
 	public static final boolean HAS_LINE_TRACKER = true;
-
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
@@ -213,6 +218,6 @@ public class RobotMap {
 	public static final Log.Level 	LOG_PAN_TILT 				= Log.Level.TRACE;
 	public static final Log.Level	LOG_GYROSCOPE				= Log.Level.DEBUG;
 	public static final Log.Level	LOG_LIGHT_RING				= Log.Level.TRACE;
-	public static final Log.Level LOG_LINE_TRACKER			= Log.Level.TRACE;
+	public static final Log.Level   LOG_LINE_TRACKER			= Log.Level.TRACE;
 	public static final Log.Level	LOG_EXAMPLE_SUBSYSTEM 		= Log.Level.TRACE;
 }
