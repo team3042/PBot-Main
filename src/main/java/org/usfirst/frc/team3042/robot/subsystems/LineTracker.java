@@ -7,11 +7,15 @@
 
 package org.usfirst.frc.team3042.robot.subsystems;
 
+import java.util.ArrayList;
+
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team3042.lib.pixy2api.Pixy2;
+import org.usfirst.frc.team3042.lib.pixy2api.Pixy2CCC;
 import org.usfirst.frc.team3042.lib.pixy2api.Pixy2.LinkType;
+import org.usfirst.frc.team3042.lib.pixy2api.Pixy2CCC.Block;
 import org.usfirst.frc.team3042.lib.pixy2api.Pixy2Line.Vector;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -36,10 +40,10 @@ public class LineTracker extends Subsystem {
       // change to the line_tracking program.  Note, changeProg can use partial strings, so for example,
       // you can change to the line_tracking program by calling changeProg("line") instead of the whole
       // string changeProg("line_tracking")
-      int result = this.pixy.changeProg("line".toCharArray());
-      if (result == Pixy2.PIXY_RESULT_ERROR) {
-        SmartDashboard.putString("linePrinter", "ERROR returned by pixy.changeProg");
-      }
+      //int result = this.pixy.changeProg("line".toCharArray());
+      //if (result == Pixy2.PIXY_RESULT_ERROR) {
+      //  SmartDashboard.putString("linePrinter", "ERROR returned by pixy.changeProg");
+      //}
 
   }
 
@@ -66,6 +70,15 @@ public class LineTracker extends Subsystem {
       } else {
         SmartDashboard.putString("linePrinter", "***** vectors is null *****");
       }
+  }
+
+  public void printBlocks() {
+    pixy.getCCC().getBlocks(false, Pixy2CCC.CCC_SIG1, 25);
+    ArrayList<Block> blocks = pixy.getCCC().getBlocks();
+    System.out.println("Blocks Found: " + blocks.size());
+    for (Block b : blocks) {
+        System.out.println(b.toString());
+    }  
   }
 
   public void followLine() {
