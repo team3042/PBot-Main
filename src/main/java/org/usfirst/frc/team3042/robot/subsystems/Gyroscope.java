@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3042.robot.subsystems;
 
-import org.usfirst.frc.team3042.lib.ADIS16448_IMU;
+import com.analog.adis16448.frc.ADIS16448_IMU;
+
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.commands.Gyroscope_Dashboard;
