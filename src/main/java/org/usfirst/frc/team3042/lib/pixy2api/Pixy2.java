@@ -385,6 +385,8 @@ public class Pixy2 {
 			if (res < 0)
 				return res;
 
+			System.out.println("Pixy: " + (buffer[0] & 0xff) + System.lineSeparator() + "Pixy: " + (buffer[1] & 0xff) + System.lineSeparator() + "Pixy: " + (buffer[2] & 0xff) + System.lineSeparator() + "Pixy: " + (buffer[3] & 0xff));
+
 			type = buffer[0] & 0xff;
 			length = buffer[1] & 0xff;
 

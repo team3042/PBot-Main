@@ -81,6 +81,15 @@ public class LineTracker extends Subsystem {
     }  
   }
 
+  public void printVersion() {
+    int res = pixy.getVersion();
+    if (res != Pixy2.PIXY_RESULT_ERROR) {
+      pixy.getVersionInfo().print();
+    } else {
+      System.out.println("***** ERROR Getting Pixy Version");
+    }
+  }
+
   public void followLine() {
 
     // Follows the code from https://github.com/charmedlabs/pixy2/blob/master/src/host/arduino/libraries/Pixy2/examples/line_zumo_demo/line_zumo_demo.ino
