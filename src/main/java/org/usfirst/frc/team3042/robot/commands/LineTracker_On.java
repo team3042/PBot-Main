@@ -14,9 +14,7 @@ import org.usfirst.frc.team3042.robot.subsystems.LineTracker;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-
-public class LineTracker_PrintLines extends Command {
-
+public class LineTracker_On extends Command {
   /** Configuration Constants ***********************************************/
   private static final Log.Level LOG_LEVEL = RobotMap.LOG_LINE_TRACKER;
 
@@ -24,9 +22,9 @@ public class LineTracker_PrintLines extends Command {
   Log log = new Log(LOG_LEVEL, getName()); 
   LineTracker lineTracker = Robot.lineTracker;
 
-  public LineTracker_PrintLines() {
-		log.add("Constructor", Log.Level.TRACE);
-		requires(lineTracker);
+  public LineTracker_On() {
+      log.add("Constructor", Log.Level.TRACE);
+	  	requires(lineTracker);
   }
 
   // Called just before this Command runs the first time
@@ -38,8 +36,6 @@ public class LineTracker_PrintLines extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    lineTracker.printBlocks();
-    //lineTracker.printLines();
   }
 
   // Make this return true when this Command no longer needs to run execute()

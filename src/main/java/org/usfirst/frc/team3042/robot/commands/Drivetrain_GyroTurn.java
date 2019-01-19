@@ -29,13 +29,16 @@ public class Drivetrain_GyroTurn extends Command {
 	double lastError, integralError, goalAngle;
 	
 	
-	/** Drivetrain_GyroTurn ***************************************************
+	/** Drivetrain_GyroTurn *************************************************** 
+	 * 
 	 * Required subsystems will cancel commands when this command is run.
 	 * 
 	 * distance is given in physical units matching the wheel diameter unit
 	 * 
 	 * speed is given in physical units per second. The physical units should 
 	 * match that of the Wheel diameter.
+	 * 
+	 * @param angle (degrees)
 	 */
 	public Drivetrain_GyroTurn(double angle) {
 		log.add("Constructor", Log.Level.TRACE);

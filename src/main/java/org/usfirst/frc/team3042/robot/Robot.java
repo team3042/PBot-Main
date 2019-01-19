@@ -10,6 +10,7 @@ import org.usfirst.frc.team3042.robot.subsystems.PanTilt;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 import org.usfirst.frc.team3042.robot.subsystems.LineTracker;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -49,13 +50,21 @@ public class Robot extends TimedRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
 
-	
+	CameraServer camera1;
+	CameraServer camera2;
+
 	/** robotInit *************************************************************
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
 		log.add("Robot Init", Log.Level.TRACE);
+
+		camera1 = CameraServer.getInstance();
+		camera2 = CameraServer.getInstance();
+
+		camera1.startAutomaticCapture();
+		camera2.startAutomaticCapture();
 		
 		oi = new OI();
 		chooser.setDefaultOption("Default Auto", new ExampleCommand());
