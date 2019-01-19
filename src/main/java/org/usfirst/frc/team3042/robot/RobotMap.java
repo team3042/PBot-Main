@@ -53,7 +53,7 @@ public class RobotMap {
 	
 
 	/** SPI ports *************************************************************/
-	public static final int LINE_TRACKER_PIXY_PORT = (IS_PBOT)? 1: 1;
+	public static final int LINE_TRACKER_PIXY_PORT = (IS_PBOT)? 0: 0;
 	//note that the Gyroscope uses the myRIO Expansion Port (MXP) and is defined in the SPI class (edu.wpi.first.wpilibj.SPI)
 	//notes for dummies: the MXP is the big boy smack center of the RoboRio (where the gyro ALWAYS goes);
 	//see http://www.ni.com/pdf/manuals/374474a.pdf for additional info on the RoboRio
@@ -167,7 +167,7 @@ public class RobotMap {
 	
 	
 	/** PanTilt Settings ******************************************************/
-	public static final boolean HAS_PAN_TILT = IS_PBOT;
+	public static final boolean HAS_PAN_TILT = false;
 	//PWM bounds are for the HS-5685MH servo
 	public static final double SERVO_PWM_MAX = 2.25;
 	public static final double SERVO_PWM_MIN = 0.76;
