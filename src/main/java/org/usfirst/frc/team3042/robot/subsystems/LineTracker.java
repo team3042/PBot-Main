@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc.team3042.lib.pixy2api.Pixy2;
-import org.usfirst.frc.team3042.lib.pixy2api.Pixy2CCC;
-import org.usfirst.frc.team3042.lib.pixy2api.Pixy2.LinkType;
-import org.usfirst.frc.team3042.lib.pixy2api.Pixy2CCC.Block;
-import org.usfirst.frc.team3042.lib.pixy2api.Pixy2Line.Vector;
+import io.github.pseudoresonance.pixy2api.Pixy2;
+import io.github.pseudoresonance.pixy2api.Pixy2CCC;
+import io.github.pseudoresonance.pixy2api.Pixy2.LinkType;
+import io.github.pseudoresonance.pixy2api.Pixy2CCC.Block;
+import io.github.pseudoresonance.pixy2api.Pixy2Line.Vector;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3042.lib.pixy2api;
+package io.github.pseudoresonance.pixy2api;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -64,9 +64,6 @@ public class Pixy2Line {
 	private final Pixy2 pixy;
 
 	private Vector[] vectors = null;
-	public Vector[] getVectors() {
-		return vectors;
-	}
 
 	private Intersection[] intersections = null;
 
@@ -123,7 +120,7 @@ public class Pixy2Line {
 					for (offset = 0, res = 0; pixy.length > offset; offset += fsize + 2) {
 						ftype = pixy.buffer[offset];
 						fsize = pixy.buffer[offset + 1];
-						fdata = Arrays.copyOfRange(pixy.buffer, offset + 2, pixy.buffer.length);
+						fdata = Arrays.copyOfRange(pixy.buffer, offset + 2, pixy.receiveLength);
 						if (ftype == LINE_VECTOR) {
 							vectors = new Vector[(int) Math.floor(fdata.length / 6)];
 							for (int i = 0; (i + 1) * 6 < fdata.length; i++) {
@@ -180,6 +177,33 @@ public class Pixy2Line {
 			} catch (InterruptedException e) {
 			}
 		}
+	}
+
+	/**
+	 * Gets detected lines from cache
+	 * 
+	 * @return Pixy2 Lines
+	 */
+	public Vector[] getVectors() {
+		return vectors;
+	}
+
+	/**
+	 * Gets detected intersections from cache
+	 * 
+	 * @return Pixy2 Intersectionss
+	 */
+	public Intersection[] getIntersections() {
+		return intersections;
+	}
+
+		/**
+	 * Gets detected barcodes from cache
+	 * 
+	 * @return Pixy2 Barcodes
+	 */
+	public Barcode[] getBarcodes() {
+		return barcodes;
 	}
 
 	/**
