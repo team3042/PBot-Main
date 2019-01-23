@@ -14,6 +14,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import io.github.pseudoresonance.pixy2api.Pixy2;
 import io.github.pseudoresonance.pixy2api.Pixy2CCC;
+import io.github.pseudoresonance.pixy2api.Pixy2Line;
 import io.github.pseudoresonance.pixy2api.Pixy2.LinkType;
 import io.github.pseudoresonance.pixy2api.Pixy2CCC.Block;
 import io.github.pseudoresonance.pixy2api.Pixy2Line.Vector;
@@ -55,20 +56,23 @@ public class LineTracker extends Subsystem {
 
   /** Command Controls ******************************************************/
 
-  public void printLines() {        
+  public void printLines() {
+      byte modeRes = this.pixy.getLine().setMode(Pixy2Line.LINE_MODE_WHITE_LINE);
       byte res = this.pixy.getLine().getAllFeatures();
-      SmartDashboard.putString("linePrinter", "getAllFeatures returned " + Integer.toHexString(res));
+      System.out.println("getAllFeatures returned " + Integer.toHexString(res));
 
       Vector[] vectors = this.pixy.getLine().getVectors();
       if (vectors != null) {
 
-        SmartDashboard.putString("linePrinter", "Vectors Found: " + vectors.length);
+        System.out.println("Vectors Found: " + vectors.length);
         for (Vector vector : vectors) {
-            SmartDashboard.putString("linePrinter", vector.toString());
+          if (vector != null) {
+            System.out.println(vector.toString());
+          }
         }
         
       } else {
-        SmartDashboard.putString("linePrinter", "***** vectors is null *****");
+        System.out.println("***** vectors is null *****");
       }
   }
 

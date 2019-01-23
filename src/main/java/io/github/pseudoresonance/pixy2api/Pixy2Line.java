@@ -123,7 +123,7 @@ public class Pixy2Line {
 						fdata = Arrays.copyOfRange(pixy.buffer, offset + 2, pixy.receiveLength);
 						if (ftype == LINE_VECTOR) {
 							vectors = new Vector[(int) Math.floor(fdata.length / 6)];
-							for (int i = 0; (i + 1) * 6 < fdata.length; i++) {
+							for (int i = 0; (i + 1) * 6 <= fdata.length; i++) {
 								vectors[i] = new Vector(fdata[(6 * i)] & 0xFF, fdata[(6 * i) + 1] & 0xFF,
 										fdata[(6 * i) + 2] & 0xFF, fdata[(6 * i) + 3] & 0xFF, fdata[(6 * i) + 4] & 0xFF,
 										fdata[(6 * i) + 5] & 0xFF);
@@ -133,7 +133,7 @@ public class Pixy2Line {
 							int size = 4 + (4 * LINE_MAX_INTERSECTION_LINES);
 							intersections = new Intersection[(int) Math
 									.floor(fdata.length / (4 + (4 * LINE_MAX_INTERSECTION_LINES)))];
-							for (int i = 0; (i + 1) * size < fdata.length; i++) {
+							for (int i = 0; (i + 1) * size <= fdata.length; i++) {
 								IntersectionLine[] lines = new IntersectionLine[LINE_MAX_INTERSECTION_LINES];
 								for (int l = 0; l < LINE_MAX_INTERSECTION_LINES; l++) {
 									int arr = ((size * i) + 4);
@@ -151,7 +151,7 @@ public class Pixy2Line {
 							res |= LINE_INTERSECTION;
 						} else if (ftype == LINE_BARCODE) {
 							barcodes = new Barcode[(int) Math.floor(fdata.length / 4)];
-							for (int i = 0; (i + 1) * 4 < fdata.length; i++) {
+							for (int i = 0; (i + 1) * 4 <= fdata.length; i++) {
 								barcodes[i] = new Barcode(fdata[(4 * i)] & 0xFF, fdata[(4 * i) + 1] & 0xFF,
 										fdata[(4 * i) + 2] & 0xFF, fdata[(4 * i) + 3] & 0xFF);
 							}
