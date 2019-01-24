@@ -188,11 +188,13 @@ public class RobotMap {
 	public static final boolean HAS_GYROSCOPE = true;
 	public static final double GYROSCOPE_SCALE = 0.25;
 	
+	/** DSN Settings **********************************************************/
+	public static final boolean HAS_DSN = true;
 	
 	/** LEDRing Settings ******************************************************/
 	public static final boolean HAS_LIGHT_RING = true;
 
-	/** LineTracker Settings ******************************************************/
+	/** LineTracker Settings **************************************************/
 	public static final boolean HAS_LINE_TRACKER = true;
 	
 	/** Logger Settings *******************************************************/
