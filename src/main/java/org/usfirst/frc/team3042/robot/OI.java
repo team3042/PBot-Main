@@ -5,7 +5,7 @@ import org.usfirst.frc.team3042.lib.Path;
 import org.usfirst.frc.team3042.robot.commands.DrivetrainAuton_Drive;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
-import org.usfirst.frc.team3042.robot.commands.LightRing_On;
+//import org.usfirst.frc.team3042.robot.commands.LightRing_On;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetPosition;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
 import org.usfirst.frc.team3042.robot.commands.LineTracker_PrintLines;

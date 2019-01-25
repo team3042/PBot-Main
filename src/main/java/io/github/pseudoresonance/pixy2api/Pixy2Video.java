@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3042.lib.pixy2api;
+package io.github.pseudoresonance.pixy2api;
 
 import java.awt.Color;
 import java.util.concurrent.TimeUnit;
@@ -166,7 +166,7 @@ public class Pixy2Video {
 		/**
 		 * Sets RGB value from Color
 		 * 
-		 * @param rgb RGB value
+		 * @param color Color
 		 */
 		public void setRGB(Color color) {
 			this.r = color.getRed();
