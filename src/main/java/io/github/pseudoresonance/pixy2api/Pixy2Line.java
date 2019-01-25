@@ -105,6 +105,8 @@ public class Pixy2Line {
 		intersections = null;
 		barcodes = null;
 
+		long start = System.currentTimeMillis();
+
 		while (true) {
 			// fill in request data
 			pixy.length = 2;
@@ -120,7 +122,7 @@ public class Pixy2Line {
 					for (offset = 0, res = 0; pixy.length > offset; offset += fsize + 2) {
 						ftype = pixy.buffer[offset];
 						fsize = pixy.buffer[offset + 1];
-						fdata = Arrays.copyOfRange(pixy.buffer, offset + 2, pixy.receiveLength);
+						fdata = Arrays.copyOfRange(pixy.buffer, offset + 2, pixy.length);
 						if (ftype == LINE_VECTOR) {
 							vectors = new Vector[(int) Math.floor(fdata.length / 6)];
 							for (int i = 0; (i + 1) * 6 <= fdata.length; i++) {
@@ -133,14 +135,14 @@ public class Pixy2Line {
 							int size = 4 + (4 * LINE_MAX_INTERSECTION_LINES);
 							intersections = new Intersection[(int) Math
 									.floor(fdata.length / (4 + (4 * LINE_MAX_INTERSECTION_LINES)))];
-							for (int i = 0; (i + 1) * size <= fdata.length; i++) {
+							for (int i = 0; (i + 1) * size < fdata.length; i++) {
 								IntersectionLine[] lines = new IntersectionLine[LINE_MAX_INTERSECTION_LINES];
-								for (int l = 0; l < LINE_MAX_INTERSECTION_LINES; l++) {
+								for (int l = 0; l <= LINE_MAX_INTERSECTION_LINES; l++) {
 									int arr = ((size * i) + 4);
 									int index = fdata[arr + (4 * l)];
 									int reserved = fdata[arr + (4 * l) + 1];
-									short angle = (short) (((fdata[arr + (4 * l) + 2] & 0xff) << 8)
-											| (fdata[arr + (4 * l) + 3] & 0xff));
+									short angle = (short) (((fdata[arr + (4 * l) + 3] & 0xff) << 8)
+											| (fdata[arr + (4 * l) + 2] & 0xff));
 									IntersectionLine intLine = new IntersectionLine(index, reserved, angle);
 									lines[l] = intLine;
 								}
@@ -170,6 +172,9 @@ public class Pixy2Line {
 			} else
 				return Pixy2.PIXY_RESULT_ERROR; // some kind of bitstream error
 
+			if (System.currentTimeMillis() - start > 500) {
+				return Pixy2.PIXY_RESULT_ERROR; // timeout to prevent lockup
+			}
 			// If we're waiting for frame data, don't thrash Pixy with requests.
 			// We can give up half a millisecond of latency (worst case)
 			try {
@@ -197,7 +202,7 @@ public class Pixy2Line {
 		return intersections;
 	}
 
-		/**
+	/**
 	 * Gets detected barcodes from cache
 	 * 
 	 * @return Pixy2 Barcodes

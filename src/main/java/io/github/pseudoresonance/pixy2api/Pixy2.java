@@ -85,7 +85,6 @@ public class Pixy2 {
 	protected int length = 0;
 	protected int type = 0;
 	protected byte[] bufferPayload = null;
-	protected int receiveLength = 0;
 
 	protected int frameWidth = -1;
 	protected int frameHeight = -1;
@@ -392,7 +391,6 @@ public class Pixy2 {
 			csSerial = ((buffer[3] & 0xff) << 8) | (buffer[2] & 0xff);
 
 			res = link.receive(buffer, length, csCalc);
-			receiveLength = length;
 
 			if (res < 0)
 				return res;
@@ -407,7 +405,6 @@ public class Pixy2 {
 			length = buffer[1];
 
 			res = link.receive(buffer, length);
-			receiveLength = length;
 
 			if (res < 0)
 				return res;
