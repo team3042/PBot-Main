@@ -38,9 +38,7 @@ public class LineTracker_PrintLines extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-  //lineTracker.printVersion();
-  //lineTracker.printBlocks();
-  lineTracker.printLines();
+    lineTracker.printLines();
   }
 
   // Make this return true when this Command no longer needs to run execute()

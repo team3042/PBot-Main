@@ -7,18 +7,14 @@
 
 package org.usfirst.frc.team3042.robot.subsystems;
 
-import java.util.ArrayList;
-
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import io.github.pseudoresonance.pixy2api.Pixy2;
-import io.github.pseudoresonance.pixy2api.Pixy2CCC;
-import io.github.pseudoresonance.pixy2api.Pixy2Line;
 import io.github.pseudoresonance.pixy2api.Pixy2.LinkType;
-import io.github.pseudoresonance.pixy2api.Pixy2CCC.Block;
+import io.github.pseudoresonance.pixy2api.Pixy2Line;
 import io.github.pseudoresonance.pixy2api.Pixy2Line.Vector;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Add your docs here.
@@ -41,56 +37,51 @@ public class LineTracker extends Subsystem {
       // change to the line_tracking program.  Note, changeProg can use partial strings, so for example,
       // you can change to the line_tracking program by calling changeProg("line") instead of the whole
       // string changeProg("line_tracking")
-      //int result = this.pixy.changeProg("line".toCharArray());
-      //if (result == Pixy2.PIXY_RESULT_ERROR) {
-      //  SmartDashboard.putString("linePrinter", "ERROR returned by pixy.changeProg");
-      //}
+      int result = this.pixy.changeProg("line".toCharArray());
+      if (result == Pixy2.PIXY_RESULT_ERROR) {
+        log.add("ERROR returned by pixy.changeProg", Log.Level.ERROR);
+      }
 
+      // Set white line on dark background tracking
+      result = this.pixy.getLine().setMode(Pixy2Line.LINE_MODE_WHITE_LINE);
+      if (result == Pixy2.PIXY_RESULT_ERROR) {
+        log.add("ERROR return by pixy.setMode", Log.Level.ERROR);
+      }
   }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
   }
 
   /** Command Controls ******************************************************/
 
   public void printLines() {
-      byte modeRes = this.pixy.getLine().setMode(Pixy2Line.LINE_MODE_WHITE_LINE);
+    
       byte res = this.pixy.getLine().getAllFeatures();
-      System.out.println("getAllFeatures returned " + Integer.toHexString(res));
+      log.add("getAllFeatures returned " + Integer.toHexString(res), LOG_LEVEL);
 
       Vector[] vectors = this.pixy.getLine().getVectors();
       if (vectors != null) {
 
-        System.out.println("Vectors Found: " + vectors.length);
+        log.add("Vectors Found: " + vectors.length, LOG_LEVEL);
         for (Vector vector : vectors) {
           if (vector != null) {
-            System.out.println(vector.toString());
+            log.add(vector.toString(), LOG_LEVEL);
           }
         }
         
       } else {
-        System.out.println("***** vectors is null *****");
+        log.add("***** vector array is null *****", LOG_LEVEL);
       }
-  }
-
-  public void printBlocks() {
-    pixy.getCCC().getBlocks(false, Pixy2CCC.CCC_SIG1, 25);
-    ArrayList<Block> blocks = pixy.getCCC().getBlocks();
-    System.out.println("Blocks Found: " + blocks.size());
-    for (Block b : blocks) {
-        System.out.println(b.toString());
-    }  
   }
 
   public void printVersion() {
     int res = pixy.getVersion();
     if (res != Pixy2.PIXY_RESULT_ERROR) {
-      pixy.getVersionInfo().print();
+      log.add(pixy.getVersionInfo().toString(), LOG_LEVEL);
     } else {
-      System.out.println("***** ERROR Getting Pixy Version");
+      log.add("***** ERROR Getting Pixy Version", Log.Level.ERROR);
     }
   }
 
