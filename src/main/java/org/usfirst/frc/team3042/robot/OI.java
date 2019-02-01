@@ -5,6 +5,7 @@ import org.usfirst.frc.team3042.lib.Path;
 import org.usfirst.frc.team3042.robot.commands.DrivetrainAuton_Drive;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
+import org.usfirst.frc.team3042.robot.commands.Gyroscope_Dashboard;
 //import org.usfirst.frc.team3042.robot.commands.LightRing_On;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetPosition;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
@@ -78,6 +79,7 @@ public class OI {
 			gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 			
 			gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
+			//gamepad.X.whenPressed(new Gyroscope_Dashboard());
 			
 			double turnRadius = 1.5 * ROBOT_WIDTH;
 			Path testPath = new Path();
