@@ -98,7 +98,7 @@ public class OI {
 			testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
 			testPath2.addRightTurn(420.0, turnInPlace, 21.0);
 			//gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
-			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(40.0));
+			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
 			//gamepad.Y.whenPressed(new Drivetrain_Calibrate());
 			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(270.0));
 		}
