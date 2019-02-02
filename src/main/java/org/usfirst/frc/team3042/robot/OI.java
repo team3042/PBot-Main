@@ -5,6 +5,7 @@ import org.usfirst.frc.team3042.lib.Path;
 import org.usfirst.frc.team3042.robot.commands.DrivetrainAuton_Drive;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
+import org.usfirst.frc.team3042.robot.commands.Drivetrain_Null;
 import org.usfirst.frc.team3042.robot.commands.Gyroscope_Dashboard;
 //import org.usfirst.frc.team3042.robot.commands.LightRing_On;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetPosition;
@@ -74,7 +75,7 @@ public class OI {
 		/** PBOT Controls *****************************************************/
 		if (IS_PBOT) {
 			//gamepad.A.toggleWhenPressed(new LightRing_On());
-			gamepad.A.toggleWhenPressed(new LineTracker_PrintLines());
+			//gamepad.A.toggleWhenPressed(new LineTracker_PrintLines());
 			gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
 			gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 			
@@ -90,6 +91,7 @@ public class OI {
 			testPath.addRightTurn(90.0, turnRadius, -21.0);
 			testPath.addStraight(36.0, -18.0);
 			gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
+			//gamepad.B.whenPressed(new Drivetrain_Null());
 			
 			double turnInPlace = 0.5 * ROBOT_WIDTH;
 			Path testPath2 = new Path();

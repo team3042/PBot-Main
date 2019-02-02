@@ -125,6 +125,7 @@ public class RobotMap {
 	public static final double kD_GYRO = 0.05;
 	public static final double ANGLE_TOLERANCE = 2.0;
 	public static final double MAX_SPEED_GYRO = 0.4;
+	public static final double kI_GYRO_INTERVAL = 0.0;
 	
 	
 	/** Spinner Settings ******************************************************/
@@ -193,7 +194,7 @@ public class RobotMap {
 	public static final boolean HAS_LIGHT_RING = true;
 
 	/** LineTracker Settings ******************************************************/
-	public static final boolean HAS_LINE_TRACKER = true;
+	public static final boolean HAS_LINE_TRACKER = false;
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
