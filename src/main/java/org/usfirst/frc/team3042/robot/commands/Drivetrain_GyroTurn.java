@@ -45,7 +45,6 @@ public class Drivetrain_GyroTurn extends Command {
 		requires(drivetrain);
 
 		goalAngle = angle;
-		log.add("Goal Angle: " + goalAngle, LOG_LEVEL);
 	}
 	
 	
@@ -54,14 +53,10 @@ public class Drivetrain_GyroTurn extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
-
 		drivetrain.stop();
-		log.add("Turn Initialized", LOG_LEVEL);
 		lastError = 0.0;
 		integralError = 0.0;
 		gyroscope.reset();
-		log.add("Gyroscope Reset", LOG_LEVEL);
-		log.add("Current Angle: " + gyroscope.getAngle(), LOG_LEVEL);
 	}
 
 	
@@ -87,8 +82,6 @@ public class Drivetrain_GyroTurn extends Command {
 		log.add("***** " + correction, Log.Level.DEBUG);
 
 		lastError = error;
-		log.add("Current Angle: " + gyroscope.getAngle(), LOG_LEVEL);
-		log.add("Error: " + lastError, LOG_LEVEL);
 	}
 	
 	
@@ -105,7 +98,6 @@ public class Drivetrain_GyroTurn extends Command {
 	 */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
-		log.add("Turn Finished!", LOG_LEVEL);
 		terminate();
 	}
 

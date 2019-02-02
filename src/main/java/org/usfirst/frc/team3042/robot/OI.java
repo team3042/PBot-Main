@@ -2,15 +2,15 @@ package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.lib.Path;
-import org.usfirst.frc.team3042.robot.commands.DrivetrainAuton_Drive;
+//import org.usfirst.frc.team3042.robot.commands.DrivetrainAuton_Drive;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_Null;
-import org.usfirst.frc.team3042.robot.commands.Gyroscope_Dashboard;
+//import org.usfirst.frc.team3042.robot.commands.Gyroscope_Dashboard;
 //import org.usfirst.frc.team3042.robot.commands.LightRing_On;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetPosition;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
-import org.usfirst.frc.team3042.robot.commands.LineTracker_PrintLines;
+//import org.usfirst.frc.team3042.robot.commands.LineTracker_PrintLines;
 
 /** OI ************************************************************************
  * This class is the glue that binds the controls on the physical operator
