@@ -120,11 +120,12 @@ public class RobotMap {
 	
 	
 	/** Drivetrain Gyro Drive Settings ****************************************/
-	public static final double kP_GYRO = 0.01;
+	public static final double kP_GYRO = 0.0175;
 	public static final double kI_GYRO = 0.0;
-	public static final double kD_GYRO = 0.05;
+	public static final double kD_GYRO = 0.0170;
 	public static final double ANGLE_TOLERANCE = 2.0;
 	public static final double MAX_SPEED_GYRO = 0.4;
+	public static final double kI_GYRO_INTERVAL = 0.0;
 	
 	
 	/** Spinner Settings ******************************************************/
@@ -186,14 +187,14 @@ public class RobotMap {
 	
 	/** Gyroscope Settings ****************************************************/
 	public static final boolean HAS_GYROSCOPE = true;
-	public static final double GYROSCOPE_SCALE = 0.25;
+	public static final double GYROSCOPE_SCALE = 1.0;
 	
 	
 	/** LEDRing Settings ******************************************************/
 	public static final boolean HAS_LIGHT_RING = true;
 
 	/** LineTracker Settings ******************************************************/
-	public static final boolean HAS_LINE_TRACKER = true;
+	public static final boolean HAS_LINE_TRACKER = false;
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
