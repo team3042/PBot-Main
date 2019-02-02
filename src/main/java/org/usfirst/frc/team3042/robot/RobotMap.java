@@ -120,9 +120,9 @@ public class RobotMap {
 	
 	
 	/** Drivetrain Gyro Drive Settings ****************************************/
-	public static final double kP_GYRO = 0.01;
+	public static final double kP_GYRO = 0.0175;
 	public static final double kI_GYRO = 0.0;
-	public static final double kD_GYRO = 0.05;
+	public static final double kD_GYRO = 0.0170;
 	public static final double ANGLE_TOLERANCE = 2.0;
 	public static final double MAX_SPEED_GYRO = 0.4;
 	public static final double kI_GYRO_INTERVAL = 0.0;

@@ -90,15 +90,15 @@ public class OI {
 			testPath.addLeftTurn(120, turnRadius, -21.0);
 			testPath.addRightTurn(90.0, turnRadius, -21.0);
 			testPath.addStraight(36.0, -18.0);
-			gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
-			//gamepad.B.whenPressed(new Drivetrain_Null());
+			//gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
+			gamepad.B.whenPressed(new Drivetrain_Null());
 			
 			double turnInPlace = 0.5 * ROBOT_WIDTH;
 			Path testPath2 = new Path();
 			testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
 			testPath2.addRightTurn(420.0, turnInPlace, 21.0);
 			//gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
-			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(40.0));
 			//gamepad.Y.whenPressed(new Drivetrain_Calibrate());
 			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(270.0));
 		}

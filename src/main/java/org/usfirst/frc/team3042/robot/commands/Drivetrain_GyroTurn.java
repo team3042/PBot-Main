@@ -80,6 +80,8 @@ public class Drivetrain_GyroTurn extends Command {
 	
 		drivetrain.setPower(correction, -correction);
 		
+		log.add("***** " + correction, Log.Level.DEBUG);
+
 		lastError = error;
 	}
 	
