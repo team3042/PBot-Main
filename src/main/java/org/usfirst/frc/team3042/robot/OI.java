@@ -76,10 +76,10 @@ public class OI {
 		if (IS_PBOT) {
 			//gamepad.A.toggleWhenPressed(new LightRing_On());
 			//gamepad.A.toggleWhenPressed(new LineTracker_PrintLines());
-			gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
-			gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
+			//gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
+			//gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 			
-			gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
+			//gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
 			//gamepad.X.whenPressed(new Gyroscope_Dashboard());
 			
 			double turnRadius = 1.5 * ROBOT_WIDTH;
@@ -91,14 +91,14 @@ public class OI {
 			testPath.addRightTurn(90.0, turnRadius, -21.0);
 			testPath.addStraight(36.0, -18.0);
 			//gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
-			gamepad.B.whenPressed(new Drivetrain_Null());
+			//gamepad.B.whenPressed(new Drivetrain_Null());
 			
 			double turnInPlace = 0.5 * ROBOT_WIDTH;
 			Path testPath2 = new Path();
 			testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
 			testPath2.addRightTurn(420.0, turnInPlace, 21.0);
 			//gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
-			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
 			//gamepad.Y.whenPressed(new Drivetrain_Calibrate());
 			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(270.0));
 		}
