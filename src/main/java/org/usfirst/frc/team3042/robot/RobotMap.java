@@ -9,13 +9,11 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
  */
 public class RobotMap {
 	/** Robot selector ********************************************************/
-	public static enum Bot {PBOT, ARTEMIS;}
+	public static enum Bot {PBOT;}
 	// Set the bot to which you intend to push code.
 	private static Bot currentBot = Bot.PBOT;
 
 	public static final boolean IS_PBOT 	= (currentBot == Bot.PBOT);
-	public static final boolean IS_ARTEMIS = (currentBot == Bot.ARTEMIS);
-	
 	
 	/** Robot Size Parameters *************************************************
 	 * The units of the wheel diameter determine the units of the position 
@@ -25,33 +23,25 @@ public class RobotMap {
 	public static final double WHEEL_DIAMETER = 4.0;
 	public static final double ROBOT_WIDTH = (IS_PBOT) ? 15.0 : 0.0;
 	
-	
 	/** USB ports *************************************************************/					
 	public static final int USB_JOYSTICK_LEFT 	= 0;
 	public static final int USB_JOYSTICK_RIGHT 	= 1;
 	public static final int USB_GAMEPAD 		= IS_PBOT ? 0 : 2;
 
-
 	/** PWM ports *************************************************************/
 	public static final int PWM_PAN_PORT 	= 0;
 	public static final int PWM_TILT_PORT 	= 1;
 	
-	
 	/** CAN ID numbers ********************************************************/
-	public static final int CAN_LEFT_MOTOR 	= 		IS_PBOT 	? 3 :
-													IS_ARTEMIS 	? 0 : 0;
-	public static final int CAN_RIGHT_MOTOR = 		IS_PBOT 	? 9 :
-													IS_ARTEMIS 	? 0 : 0;
-	public static final int CAN_LEFT_FOLLOWER = 	IS_ARTEMIS 	? 0 : 0;
-	public static final int CAN_RIGHT_FOLLOWER = 	IS_ARTEMIS 	? 0 : 0;
-	public static final int CAN_SPINNER 	= 		IS_PBOT		? 10 :
-													IS_ARTEMIS 	? 0 : 0;
-	
+	public static final int CAN_LEFT_MOTOR 	= 3;
+	public static final int CAN_RIGHT_MOTOR = 9;
+	public static final int CAN_LEFT_FOLLOWER = 0;
+	public static final int CAN_RIGHT_FOLLOWER = 0;
+	public static final int CAN_SPINNER 	= 10;
 	
 	/** PCM channels **********************************************************/
 	public static final int LIGHT_RING_CHANNEL = 1;
 	
-
 	/** SPI ports *************************************************************/
 	public static final int LINE_TRACKER_PIXY_PORT = (IS_PBOT)? 0: 0;
 	//note that the Gyroscope uses the myRIO Expansion Port (MXP) and is defined in the SPI class (edu.wpi.first.wpilibj.SPI)
@@ -64,7 +54,6 @@ public class RobotMap {
 	public static final double TRIGGER_SPINNER_SCALE = 0.1;
 	public static final double JOYSTICK_DEAD_ZONE = 0.0;
 
-
 	/** Drivetrain Settings ***************************************************/
 	public static final boolean HAS_DRIVETRAIN = true;
 	public static final boolean HAS_FOLLOWERS = !IS_PBOT;
@@ -73,11 +62,8 @@ public class RobotMap {
 	public static final boolean REVERSE_RIGHT_MOTOR = 	(IS_PBOT) ? false: false;
 	// Maximum Acceleration given in power per second
 	public static final double ACCELERATION_MAX = 1.5;
-	public static final double kF_DRIVE_LEFT = 	(IS_PBOT) 		?  0.1817180616740088 :
-												(IS_ARTEMIS) 	? 0.0 : 0.0;
-	public static final double kF_DRIVE_RIGHT = (IS_PBOT) 		?  0.16686239968682717 :
-												(IS_ARTEMIS) 	? 0.0 : 0.0;
-	
+	public static final double kF_DRIVE_LEFT  = 0.1817180616740088;
+	public static final double kF_DRIVE_RIGHT = 0.16686239968682717;
 	
 	/** Drivetrain Encoder Settings *******************************************/
 	public static final boolean HAS_ENCODERS = true;
@@ -89,18 +75,13 @@ public class RobotMap {
 	public static final boolean SENSOR_PHASE_LEFT = 	(IS_PBOT) ? false: false;
 	public static final boolean SENSOR_PHASE_RIGHT = 	(IS_PBOT) ? false: false;
 	
-	
 	/** Drivetrain Autonomous Settings ****************************************/
 	public static final boolean HAS_AUTON = HAS_ENCODERS;
 	public static final int AUTON_PROFILE = 0;
-	public static final double kP_AUTON = 		(IS_PBOT) 		? 0.4 :
-												(IS_ARTEMIS) 	? 0.0 : 0.0;
-	public static final double kI_AUTON = 		(IS_PBOT) 		? 0.0 :
-												(IS_ARTEMIS) 	? 0.0 : 0.0;
-	public static final double kD_AUTON = 		(IS_PBOT) 		? 0.8 :
-												(IS_ARTEMIS) 	? 0.0 : 0.0;
-	public static final int I_ZONE_AUTON =		(IS_PBOT)		? 0 :
-												(IS_ARTEMIS)	? 0 : 0;
+	public static final double kP_AUTON  =  0.4;
+	public static final double kI_AUTON  = 	0.0;
+	public static final double kD_AUTON  =  0.8;
+	public static final int I_ZONE_AUTON =	0;
 	//The rate of pushing motion profile points to the talon, in ms
 	public static final int AUTON_FRAME_RATE = 10;
 	//Parameters for calibrating the F-gain
@@ -118,7 +99,6 @@ public class RobotMap {
 	public static final int AUTON_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final int AUTON_HEADING = 0; //unimplemented feature; set to zero
 	
-	
 	/** Drivetrain Gyro Drive Settings ****************************************/
 	public static final double kP_GYRO = 0.0175;
 	public static final double kI_GYRO = 0.0;
@@ -127,12 +107,10 @@ public class RobotMap {
 	public static final double MAX_SPEED_GYRO = 0.4;
 	public static final double kI_GYRO_INTERVAL = 0.0;
 	
-	
 	/** Spinner Settings ******************************************************/
 	public static final boolean HAS_SPINNER = IS_PBOT;
 	public static final NeutralMode SPINNER_BRAKE_MODE = NeutralMode.Brake;
 	public static final boolean REVERSE_SPINNER = false;
-	
 	
 	/** Spinner Encoder Settings **********************************************/
 	public static final boolean HAS_SPINNER_ENCODER = HAS_SPINNER;
@@ -140,7 +118,6 @@ public class RobotMap {
 	public static final int SPINNER_ENCODER_COUNTS_PER_REV = 4096;
 	public static final boolean REVERSE_SPINNER_ENCODER = false;
 	public static final boolean SPINNER_SENSOR_PHASE = false;
-	
 	
 	/** Spinner Closed-Loop Settings ******************************************/
 	public static final boolean HAS_SPINNER_CLOSED_LOOP = HAS_SPINNER;
@@ -166,7 +143,6 @@ public class RobotMap {
 	public static final int SPINNER_CRUISE = 500; //RPM
 	public static final int SPINNER_ACCEL = 500; //RPM per sec
 	
-	
 	/** PanTilt Settings ******************************************************/
 	public static final boolean HAS_PAN_TILT = false;
 	//PWM bounds are for the HS-5685MH servo
@@ -184,11 +160,9 @@ public class RobotMap {
 	public static final boolean REVERSE_PAN = false;
 	public static final boolean REVERSE_TILT = false;
 	
-	
 	/** Gyroscope Settings ****************************************************/
 	public static final boolean HAS_GYROSCOPE = true;
 	public static final double GYROSCOPE_SCALE = 1.0;
-	
 	
 	/** LEDRing Settings ******************************************************/
 	public static final boolean HAS_LIGHT_RING = true;

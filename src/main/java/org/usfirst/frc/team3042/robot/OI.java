@@ -1,15 +1,16 @@
 package org.usfirst.frc.team3042.robot;
-
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.lib.Path;
+
+/*OLD OR UNUSED IMPORTS*/
 //import org.usfirst.frc.team3042.robot.commands.DrivetrainAuton_Drive;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_Null;
+//import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
+//import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
+//import org.usfirst.frc.team3042.robot.commands.Drivetrain_Null;
 //import org.usfirst.frc.team3042.robot.commands.Gyroscope_Dashboard;
 //import org.usfirst.frc.team3042.robot.commands.LightRing_On;
-import org.usfirst.frc.team3042.robot.commands.Spinner_SetPosition;
-import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
+//import org.usfirst.frc.team3042.robot.commands.Spinner_SetPosition;
+//import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
 //import org.usfirst.frc.team3042.robot.commands.LineTracker_PrintLines;
 
 /** OI ************************************************************************
@@ -19,7 +20,6 @@ import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
 public class OI {	
 	/** Configuration Constants ***********************************************/
 	private static final boolean IS_PBOT = RobotMap.IS_PBOT;
-	private static final boolean IS_ARTEMIS = RobotMap.IS_ARTEMIS;
 	private static final int USB_GAMEPAD = RobotMap.USB_GAMEPAD;
 	private static final int USB_JOY_LEFT = RobotMap.USB_JOYSTICK_LEFT;
 	private static final int USB_JOY_RIGHT = RobotMap.USB_JOYSTICK_RIGHT;
@@ -34,12 +34,10 @@ public class OI {
 	private static final int GAMEPAD_RIGHT_TRIGGER = Gamepad.RIGHT_TRIGGER;
 	private static final double ROBOT_WIDTH = RobotMap.ROBOT_WIDTH;
 	
-	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(RobotMap.LOG_OI, "OI");
 	Gamepad gamepad, joyLeft, joyRight;
 	int driveAxisLeft, driveAxisRight;
-
 
 	/** OI ********************************************************************
 	 * Assign commands to the buttons and triggers
@@ -74,6 +72,7 @@ public class OI {
 		
 		/** PBOT Controls *****************************************************/
 		if (IS_PBOT) {
+			/*OLD OR UNUSED CONTROLS*/
 			//gamepad.A.toggleWhenPressed(new LightRing_On());
 			//gamepad.A.toggleWhenPressed(new LineTracker_PrintLines());
 			//gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
@@ -81,6 +80,14 @@ public class OI {
 			
 			//gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
 			//gamepad.X.whenPressed(new Gyroscope_Dashboard());
+
+			//gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
+			//gamepad.B.whenPressed(new Drivetrain_Null());
+
+			//gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
+			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+			//gamepad.Y.whenPressed(new Drivetrain_Calibrate());
+			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(270.0));
 			
 			double turnRadius = 1.5 * ROBOT_WIDTH;
 			Path testPath = new Path();
@@ -90,25 +97,13 @@ public class OI {
 			testPath.addLeftTurn(120, turnRadius, -21.0);
 			testPath.addRightTurn(90.0, turnRadius, -21.0);
 			testPath.addStraight(36.0, -18.0);
-			//gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
-			//gamepad.B.whenPressed(new Drivetrain_Null());
-			
+
 			double turnInPlace = 0.5 * ROBOT_WIDTH;
 			Path testPath2 = new Path();
 			testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
 			testPath2.addRightTurn(420.0, turnInPlace, 21.0);
-			//gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
-			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
-			//gamepad.Y.whenPressed(new Drivetrain_Calibrate());
-			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(270.0));
-		}
-		
-		/** Artemis Controls **************************************************/
-		if (IS_ARTEMIS) {
-			
 		}
 	}
-	
 	
 	/** Access to the driving axes values *************************************
 	 * A negative has been added to make pushing forward positive.
@@ -134,12 +129,10 @@ public class OI {
 		return joystickValue;
 	}
 	
-	
 	/** Access the POV value **************************************************/
 	public int getPOV() {
 		return gamepad.getPOV();
 	}
-	
 	
 	/** Access the Trigger Values *********************************************/
 	public double getTriggerDifference() {
