@@ -6,7 +6,6 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
-
 /** GamepadTrigger ************************************************************
  * A object that monitors gamepad triggers
  */
@@ -15,7 +14,6 @@ public class AxisTrigger extends Trigger {
 	public static final Log.Level LOG_LEVEL = RobotMap.LOG_AXIS_TRIGGER;
 
 	public static enum Direction{UP, DOWN, LEFT, RIGHT;}
-
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, "Axis Trigger");
@@ -24,7 +22,6 @@ public class AxisTrigger extends Trigger {
 	Direction direction;
 	Boolean reset = false;
 
-	
 	/** GamepadTrigger ******************************************************** 
 	 * Short version assumes positive values, which is equivalent to the DOWN 
 	 *  or LEFT direction. Useful for gamepad triggers.
@@ -43,7 +40,6 @@ public class AxisTrigger extends Trigger {
 		this.direction = direction;
 	}
 
-	
 	/** get *******************************************************************
 	 * Return if the axis has been pushed to trigger the command.
 	 */
