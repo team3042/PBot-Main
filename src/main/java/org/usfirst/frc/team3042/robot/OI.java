@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
-import org.usfirst.frc.team3042.lib.Path;
+//import org.usfirst.frc.team3042.lib.Path;
 
 /** OI ************************************************************************
  * This class is the glue that binds the controls on the physical operator
@@ -23,14 +23,12 @@ public class OI {
 	private static final int JOYSTICK_Y_AXIS = Gamepad.JOY_Y_AXIS;
 	private static final int GAMEPAD_LEFT_TRIGGER = Gamepad.LEFT_TRIGGER;
 	private static final int GAMEPAD_RIGHT_TRIGGER = Gamepad.RIGHT_TRIGGER;
-	private static final double ROBOT_WIDTH = RobotMap.ROBOT_WIDTH;
-	
+	//private static final double ROBOT_WIDTH = RobotMap.ROBOT_WIDTH;
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(RobotMap.LOG_OI, "OI");
 	Gamepad gamepad, joyLeft, joyRight;
 	int driveAxisLeft, driveAxisRight;
-
 
 	/** OI ********************************************************************
 	 * Assign commands to the buttons and triggers
@@ -65,22 +63,22 @@ public class OI {
 		
 		/** PBOT Controls *****************************************************/
 		if (IS_PBOT) {
-			double turnRadius = 1.5 * ROBOT_WIDTH;
-			Path testPath = new Path();
-			testPath.addStraight(36.0, 18.0);
-			testPath.addRightTurn(90.0, turnRadius, 21.0);
-			testPath.addLeftTurn(120, turnRadius, 21.0);
-			testPath.addLeftTurn(120, turnRadius, -21.0);
-			testPath.addRightTurn(90.0, turnRadius, -21.0);
-			testPath.addStraight(36.0, -18.0);
-			
-			
-			double turnInPlace = 0.5 * ROBOT_WIDTH;
-			Path testPath2 = new Path();
-			testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
-			testPath2.addRightTurn(420.0, turnInPlace, 21.0);
-			
+			/*Code For Autonomous Driving*/
 
+			//double turnRadius = 1.5 * ROBOT_WIDTH;
+			//Path testPath = new Path();
+			//testPath.addStraight(36.0, 18.0);
+			//testPath.addRightTurn(90.0, turnRadius, 21.0);
+			//testPath.addLeftTurn(120, turnRadius, 21.0);
+			//testPath.addLeftTurn(120, turnRadius, -21.0);
+			//testPath.addRightTurn(90.0, turnRadius, -21.0);
+			//testPath.addStraight(36.0, -18.0);
+			
+			//double turnInPlace = 0.5 * ROBOT_WIDTH;
+			//Path testPath2 = new Path();
+			//testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
+			//testPath2.addRightTurn(420.0, turnInPlace, 21.0);
+		
 			/*OLD OR UNUSED CONTROLS*/
 
 			//gamepad.A.toggleWhenPressed(new LightRing_On());
@@ -106,7 +104,6 @@ public class OI {
 		}
 	}
 	
-	
 	/** Access to the driving axes values *************************************
 	 * A negative has been added to make pushing forward positive.
 	 */
@@ -131,12 +128,10 @@ public class OI {
 		return joystickValue;
 	}
 	
-	
 	/** Access the POV value **************************************************/
 	public int getPOV() {
 		return gamepad.getPOV();
 	}
-	
 	
 	/** Access the Trigger Values *********************************************/
 	public double getTriggerDifference() {

@@ -10,13 +10,13 @@ import org.usfirst.frc.team3042.robot.subsystems.PanTilt;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 import org.usfirst.frc.team3042.robot.subsystems.LineTracker;
 
-import edu.wpi.first.cameraserver.CameraServer;
+//import edu.wpi.cscore.UsbCamera;
+//import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 
 /** Robot *********************************************************************
  * The VM is configured to automatically run this class, and to call the
@@ -35,7 +35,6 @@ public class Robot extends TimedRobot {
 	private static final boolean HAS_SPINNER = RobotMap.HAS_SPINNER;
 	private static final boolean HAS_LINE_TRACKER = RobotMap.HAS_LINE_TRACKER;
 	
-	
 	/** Create Subsystems *****************************************************/
 	private Log log = new Log(LOG_LEVEL, "Robot");
 	public static final Drivetrain 	drivetrain 	= (HAS_DRIVETRAIN) 	? new Drivetrain() 	: null;
@@ -50,8 +49,8 @@ public class Robot extends TimedRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
 
-	CameraServer camera1;
-	CameraServer camera2;
+	//UsbCamera camera1;
+	//UsbCamera camera2;
 
 	/** robotInit *************************************************************
 	 * This function is run when the robot is first started up and should be
@@ -60,19 +59,22 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		log.add("Robot Init", Log.Level.TRACE);
 
-		camera1 = CameraServer.getInstance();
-		camera2 = CameraServer.getInstance();
+		/*Code For Cameras (Microsoft Lifecams)*/
 
-		camera1.startAutomaticCapture();
-		camera2.startAutomaticCapture();
-		
+		//camera1 = CameraServer.getInstance().startAutomaticCapture(0);
+		//camera2 = CameraServer.getInstance().startAutomaticCapture(1);
+
+		//camera1.setResolution(1280, 720);
+		//camera1.setFPS(15);
+		//camera2.setResolution(1280, 720);
+		//camera2.setFPS(15);
+
 		oi = new OI();
 		chooser.setDefaultOption("Default Auto", new ExampleCommand());
 		chooser.addOption("My Auto", new ExampleCommand());
 		SmartDashboard.putData("Auto Mode", chooser);
 	}
 
-	
 	/** disabledInit **********************************************************
 	 * This function is called once each time the robot enters Disabled mode.
 	 * You can use it to reset any subsystem information you want to clear when
@@ -82,7 +84,6 @@ public class Robot extends TimedRobot {
 		log.add("Disabled Init", Log.Level.TRACE);
 	}
 
-	
 	/** disabledPeriodic ******************************************************
 	 * Called repeatedly while the robot is is disabled mode.
 	 */
@@ -90,7 +91,6 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 	}
 
-	
 	/** autonomousInit ********************************************************
 	 * Run once at the start of autonomous mode.
 	 */
@@ -104,14 +104,12 @@ public class Robot extends TimedRobot {
 			autonomousCommand.start();
 	}
 
-	
 	/** autonomousPeriodic ****************************************************
 	 * This function is called periodically during autonomous
 	 */
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 	}
-
 	
 	/** teleopInit ************************************************************
 	 * This function is called when first entering teleop mode.
@@ -127,7 +125,6 @@ public class Robot extends TimedRobot {
 			autonomousCommand.cancel();
 	}
 
-
 	/** teleopPeriodic ********************************************************
 	 * This function is called periodically during operator control
 	 */
@@ -135,7 +132,6 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 	}
 
-	
 	/** testPeriodic **********************************************************
 	 * This function is called periodically during test mode
 	 */
