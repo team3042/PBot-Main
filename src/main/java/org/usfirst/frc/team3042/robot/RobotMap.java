@@ -30,8 +30,6 @@ public class RobotMap {
 	public static final int USB_GAMEPAD 		= IS_PBOT ? 0 : 2;
 
 	/** PWM ports *************************************************************/
-	public static final int PWM_PAN_PORT 	= 0;
-	public static final int PWM_TILT_PORT 	= 1;
 	
 	/** CAN ID numbers ********************************************************/
 	public static final int CAN_LEFT_MOTOR 	= 		IS_PBOT 	? 3 :
@@ -153,23 +151,6 @@ public class RobotMap {
 	public static final int SPINNER_CRUISE = 500; //RPM
 	public static final int SPINNER_ACCEL = 500; //RPM per sec
 	
-	/** PanTilt Settings ******************************************************/
-	public static final boolean HAS_PAN_TILT = false;
-	//PWM bounds are for the HS-5685MH servo
-	public static final double SERVO_PWM_MAX = 2.25;
-	public static final double SERVO_PWM_MIN = 0.76;
-	public static final double PAN_MIN = 0.25;
-	public static final double PAN_CENTER = 0.430;
-	public static final double PAN_MAX = 0.7;
-	public static final double TILT_MIN = 0.0;
-	public static final double TILT_CENTER 	= 0.515;
-	public static final double TILT_MAX = 0.7;
-	//The change in servo position per second when driven with the POV buttons
-	public static final double SERVO_SPEED = 0.25;
-	//Reverse the direction of the servos if they don't match the controls
-	public static final boolean REVERSE_PAN = false;
-	public static final boolean REVERSE_TILT = false;
-	
 	/** Gyroscope Settings ****************************************************/
 	public static final boolean HAS_GYROSCOPE = true;
 	public static final double GYROSCOPE_SCALE = 1.0;
@@ -200,7 +181,6 @@ public class RobotMap {
 	public static final Log.Level	LOG_SPINNER					= Log.Level.TRACE;
 	public static final Log.Level	LOG_SPINNER_ENCODER			= Log.Level.TRACE;
 	public static final Log.Level	LOG_SPINNER_CLOSED_LOOP		= Log.Level.DEBUG;
-	public static final Log.Level 	LOG_PAN_TILT 				= Log.Level.TRACE;
 	public static final Log.Level	LOG_GYROSCOPE				= Log.Level.DEBUG;
 	public static final Log.Level	LOG_LIGHT_RING				= Log.Level.TRACE;
 	public static final Log.Level   LOG_LINE_TRACKER			= Log.Level.TRACE;
