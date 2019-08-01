@@ -1,7 +1,10 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
+import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
+import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 //import org.usfirst.frc.team3042.lib.Path;
+import org.usfirst.frc.team3042.robot.commands.LightRing_On;
 
 /** OI ************************************************************************
  * This class is the glue that binds the controls on the physical operator
@@ -63,6 +66,11 @@ public class OI {
 		
 		/** PBOT Controls *****************************************************/
 		if (IS_PBOT) {
+
+			gamepad.A.toggleWhenPressed(new LightRing_On());
+			gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
+			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+
 			/*Code For Autonomous Driving*/
 
 			//double turnRadius = 1.5 * ROBOT_WIDTH;
@@ -81,19 +89,17 @@ public class OI {
 		
 			/*OLD OR UNUSED CONTROLS*/
 
-			//gamepad.A.toggleWhenPressed(new LightRing_On());
 			//gamepad.A.toggleWhenPressed(new LineTracker_PrintLines());
 			//gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
 			//gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 			
-			//gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
 			//gamepad.X.whenPressed(new Gyroscope_Dashboard());
 
 			//gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
 			//gamepad.B.whenPressed(new Drivetrain_Null());
 			
 			//gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
-			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+			
 			//gamepad.Y.whenPressed(new Drivetrain_Calibrate());
 			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(270.0));
 		}
