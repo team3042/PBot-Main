@@ -68,8 +68,9 @@ public class OI {
 		if (IS_PBOT) {
 
 			gamepad.A.toggleWhenPressed(new LightRing_On());
-			gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
-			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+			/*Gyroscope needs to be fixed*/
+			//gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
+			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
 
 			/*Code For Autonomous Driving*/
 
