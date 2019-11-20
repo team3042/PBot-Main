@@ -1,10 +1,11 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
+//import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
+//import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 //import org.usfirst.frc.team3042.lib.Path;
 import org.usfirst.frc.team3042.robot.commands.LightRing_On;
+import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
 
 /** OI ************************************************************************
  * This class is the glue that binds the controls on the physical operator
@@ -68,9 +69,13 @@ public class OI {
 		if (IS_PBOT) {
 
 			gamepad.A.toggleWhenPressed(new LightRing_On());
-			/*Gyroscope needs to be fixed?*/
-			gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
-			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+
+			/*Big gyroscope needs to be fixed?*/
+			//gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
+			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+
+			gamepad.LB.whenPressed(new Spinner_SetSpeed(-1*500));
+			gamepad.RB.whenPressed(new Spinner_SetSpeed(0));
 
 			/*Code For Autonomous Driving*/
 
