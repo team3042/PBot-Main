@@ -30,7 +30,11 @@ public class Spinner_AdjustSpeed extends Command {
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		
-		spinner.adjustSpeed(increase);
+		spinner.adjustSpeed(increase); //adjust speed value
+
+		if (spinner.closedLoop.spinning == true) {
+			spinner.closedLoop.setSpeed(spinner.speed); //set spinner speed to new value 
+		}
 	}
 	
 	/** execute ***************************************************************

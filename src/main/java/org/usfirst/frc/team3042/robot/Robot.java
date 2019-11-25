@@ -11,8 +11,6 @@ import org.usfirst.frc.team3042.robot.subsystems.LineTracker;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
-//import edu.wpi.cscore.UsbCamera;
-//import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
