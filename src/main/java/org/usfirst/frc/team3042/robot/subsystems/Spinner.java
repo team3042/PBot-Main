@@ -27,7 +27,7 @@ public class Spinner extends Subsystem {
 	public TalonSRX motor = new TalonSRX(CAN_SPINNER);
 	SpinnerEncoder encoder;
 	public SpinnerClosedLoop closedLoop;
-	public int speed = 500;
+	public double speed = 500;
 	
 	
 	/** Spinner ***************************************************************/
