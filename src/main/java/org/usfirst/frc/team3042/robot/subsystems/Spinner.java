@@ -66,10 +66,10 @@ public class Spinner extends Subsystem {
 
 	public void adjustSpeed(boolean increase) {
 		if (increase == true) {
-			speed = speed + 10;
+			speed = speed + 5;
 		}
 		else if (increase == false) {
-			speed = speed - 10;
+			speed = speed - 5;
 		}
 	}
 
