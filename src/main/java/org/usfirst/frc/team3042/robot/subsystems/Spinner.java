@@ -20,6 +20,8 @@ public class Spinner extends Subsystem {
 	private static final boolean REVERSE_SPINNER = RobotMap.REVERSE_SPINNER;
 	private static final boolean HAS_ENCODER = RobotMap.HAS_SPINNER_ENCODER;
 	private static final boolean HAS_CLOSED_LOOP = RobotMap.HAS_SPINNER_CLOSED_LOOP;
+	private static final double MAX_SPEED = RobotMap.SPINNER_MAX_SPEED;
+	private static final double MIN_SPEED = RobotMap.SPINNER_MIN_SPEED;
 
 	
 	/** Instance Variables ****************************************************/
@@ -65,10 +67,10 @@ public class Spinner extends Subsystem {
 	}
 
 	public void adjustSpeed(boolean increase) {
-		if (increase == true) {
+		if (increase == true && speed < MAX_SPEED) {
 			speed = speed + 5;
 		}
-		else if (increase == false) {
+		else if (increase == false && speed > MIN_SPEED) {
 			speed = speed - 5;
 		}
 	}
