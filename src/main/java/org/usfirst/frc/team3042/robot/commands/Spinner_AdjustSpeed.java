@@ -47,7 +47,7 @@ public class Spinner_AdjustSpeed extends Command {
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
-		return !spinner.closedLoop.spinning;
+		return false;
 	}
 
 	/** end *******************************************************************
@@ -69,5 +69,6 @@ public class Spinner_AdjustSpeed extends Command {
 	
 	/** Graceful End **********************************************************/
 	private void terminate() {
+		spinner.stop();
 	}
 }
