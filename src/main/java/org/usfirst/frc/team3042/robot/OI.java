@@ -1,8 +1,8 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
+//import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
+//import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 //import org.usfirst.frc.team3042.lib.Path;
 import org.usfirst.frc.team3042.robot.commands.LightRing_On;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
@@ -101,7 +101,6 @@ public class OI {
 
 			//gamepad.A.toggleWhenPressed(new LineTracker_PrintLines());
 			//gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
-			//gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 			
 			//gamepad.X.whenPressed(new Gyroscope_Dashboard());
 
@@ -111,7 +110,6 @@ public class OI {
 			//gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
 			
 			//gamepad.Y.whenPressed(new Drivetrain_Calibrate());
-			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(270.0));
 		}
 		
 		/** Artemis Controls **************************************************/

@@ -9,7 +9,6 @@ import org.usfirst.frc.team3042.robot.commands.Gyroscope_Dashboard;
 //import edu.wpi.first.wpilibj.ADXRS450_Gyro; //Uncomment for ADXRS450 gyroscope (Small Boy)
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-
 /** Gyroscope *****************************************************************
  * Gyroscope subsystem
  */
@@ -17,13 +16,11 @@ public class Gyroscope extends Subsystem {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_GYROSCOPE;
 	private static final double GYROSCOPE_SCALE = RobotMap.GYROSCOPE_SCALE;
-
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, getName());
-	ADIS16448_IMU gyroscope = new ADIS16448_IMU(); //Uncomment for ADIS16448 gyroscope (Big Boy)
+	public static final ADIS16448_IMU gyroscope = new ADIS16448_IMU(); //Uncomment for ADIS16448 gyroscope (Big Boy)
 	//ADXRS450_Gyro gyroscope = new ADXRS450_Gyro(); //Uncomment for ADXRS450 gyroscope (Small Boy)
-
 	
 	/** ExampleSubsystem ******************************************************/
 	public Gyroscope() {
@@ -32,14 +29,12 @@ public class Gyroscope extends Subsystem {
 		calibrate();
 	}
 	
-	
 	/** initDefaultCommand ****************************************************
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
 		setDefaultCommand(new Gyroscope_Dashboard());
 	}
-	
 	
 	/** Command Methods *******************************************************/
 	public double getAngle() {
