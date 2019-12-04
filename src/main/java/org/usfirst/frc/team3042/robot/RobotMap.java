@@ -150,9 +150,6 @@ public class RobotMap {
 	public static final int SPINNER_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final int SPINNER_CRUISE = 500; //RPM
 	public static final int SPINNER_ACCEL = 500; //RPM per sec
-	public static final double SPINNER_MAX_SPEED = 900; //Maximum speed of spinner in RPM
-	public static final double SPINNER_MIN_SPEED = 50; //Minimum speed of spinner in RPM
-	public static final double SPINNER_ADJUST_INTERVAL = 5; //RPM
 	
 	/** Gyroscope Settings ****************************************************/
 	public static final boolean HAS_GYROSCOPE = true;

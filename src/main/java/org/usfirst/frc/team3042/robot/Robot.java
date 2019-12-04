@@ -61,8 +61,8 @@ public class Robot extends TimedRobot {
 		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
 		//camera2 = CameraServer.getInstance().startAutomaticCapture(1);
 
-		//camera1.setResolution(1280, 720);
-		//camera1.setFPS(15);
+		camera1.setResolution(320, 240);
+		camera1.setFPS(15);
 		//camera2.setResolution(1280, 720);
 		//camera2.setFPS(15);
 
@@ -127,7 +127,6 @@ public class Robot extends TimedRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		SmartDashboard.putNumber("Shooter Speed: ", spinner.speed);
 	}
 
 	/** testPeriodic **********************************************************

@@ -3,11 +3,8 @@ package org.usfirst.frc.team3042.robot;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
-//import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
-//import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 //import org.usfirst.frc.team3042.lib.Path;
 import org.usfirst.frc.team3042.robot.commands.LightRing_On;
-import org.usfirst.frc.team3042.robot.commands.Spinner_AdjustSpeed;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 
@@ -31,6 +28,7 @@ public class OI {
 	private static final int JOYSTICK_Y_AXIS = Gamepad.JOY_Y_AXIS;
 	private static final int GAMEPAD_LEFT_TRIGGER = Gamepad.LEFT_TRIGGER;
 	private static final int GAMEPAD_RIGHT_TRIGGER = Gamepad.RIGHT_TRIGGER;
+	private static final double SPINNER_SPEED = RobotMap.SPINNER_DEFAULT_SPEED;
 	//private static final double ROBOT_WIDTH = RobotMap.ROBOT_WIDTH;
 	
 	/** Instance Variables ****************************************************/
@@ -75,15 +73,13 @@ public class OI {
 
 			gamepad.A.toggleWhenPressed(new LightRing_On());
 
-			gamepad.LB.whenPressed(new Spinner_SetSpeed(-1*spinner.speed));
+			gamepad.LB.whenPressed(new Spinner_SetSpeed(-1*SPINNER_SPEED));
 			gamepad.RB.whenPressed(new Spinner_SetSpeed(0));
 
-			gamepad.POVUp.whileActive(new Spinner_AdjustSpeed(true));
-			gamepad.POVDown.whileActive(new Spinner_AdjustSpeed(false));
-
-			/*Big gyroscope needs to be fixed?*/
-			gamepad.X.whenPressed(new Drivetrain_GyroStraight(72.0, 24.0));
-			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+			/*Big gyroscope needs to be fixed*/
+			
+			//gamepad.X.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
+			//gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
 
 			/*Code For Autonomous Driving*/
 
