@@ -20,7 +20,6 @@ public class Spinner extends Subsystem {
 	private static final boolean REVERSE_SPINNER = RobotMap.REVERSE_SPINNER;
 	private static final boolean HAS_ENCODER = RobotMap.HAS_SPINNER_ENCODER;
 	private static final boolean HAS_CLOSED_LOOP = RobotMap.HAS_SPINNER_CLOSED_LOOP;
-
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, getName());
@@ -62,8 +61,7 @@ public class Spinner extends Subsystem {
 	public void stop() {
 		setPower(0.0);
 	}
-	
-	
+
 	/** Provide commands access to the encoder ********************************/
 	public SpinnerEncoder getEncoder() {
 		return encoder;

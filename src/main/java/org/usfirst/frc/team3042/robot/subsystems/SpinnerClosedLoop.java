@@ -35,6 +35,7 @@ public class SpinnerClosedLoop extends Subsystem {
 	Log log = new Log(LOG_LEVEL, getName());
 	TalonSRX motor;
 	SpinnerEncoder encoder;
+	public boolean spinning = false;
 	
 	
 	/** SpinnerClosedLoop *****************************************************/
@@ -72,6 +73,13 @@ public class SpinnerClosedLoop extends Subsystem {
 	 */
 	public void setSpeed(double rpm){
 		log.add("Speed", rpm, LOG_LEVEL);
+
+		if (rpm == 0) {
+			spinning = false;
+		}
+		else if (rpm != 0) {
+			spinning = true;
+		}
 		
 		double cp100ms = rpmToCp100ms(rpm);
 				
