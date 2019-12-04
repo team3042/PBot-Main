@@ -99,7 +99,6 @@ public class OI {
 		
 			/*OLD OR UNUSED CONTROLS*/
 
-			//gamepad.A.toggleWhenPressed(new LineTracker_PrintLines());
 			//gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
 			
 			//gamepad.X.whenPressed(new Gyroscope_Dashboard());
