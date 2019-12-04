@@ -43,8 +43,8 @@ public class Gyroscope extends Subsystem {
 	
 	/** Command Methods *******************************************************/
 	public double getAngle() {
-		return gyroscope.getAngleZ()*GYROSCOPE_SCALE; //Uncomment for ADIS16448 gyroscope (Big Boy)	
-		//return gyroscope.getAngle()*GYROSCOPE_SCALE; //Uncomment for ADXRS450 gyroscope (Small Boy)
+		//return gyroscope.getAngleZ()*GYROSCOPE_SCALE; //Uncomment for ADIS16448 gyroscope (Big Boy)	
+		return gyroscope.getAngle()*GYROSCOPE_SCALE; //Uncomment for ADXRS450 gyroscope (Small Boy)
 	}
 	public void reset() {
 		gyroscope.reset();
