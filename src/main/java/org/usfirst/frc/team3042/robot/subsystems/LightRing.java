@@ -5,6 +5,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 
 /** LightRing *****************************************************************
@@ -17,7 +18,7 @@ public class LightRing extends Subsystem {
 	
 	
 	/** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	Solenoid lightRing = new Solenoid(LIGHT_RING_CHANNEL);
 	
 	

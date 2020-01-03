@@ -1,7 +1,8 @@
- package org.usfirst.frc.team3042.robot.commands;
+package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -22,8 +23,8 @@ public class Spinner_Calibrate extends Command {
 	
 	
 	/** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
 	Spinner spinner = Robot.spinner;
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(spinner));
 	SpinnerEncoder encoder = Robot.spinner.getEncoder();
 	Timer timer = new Timer();
 	int count;

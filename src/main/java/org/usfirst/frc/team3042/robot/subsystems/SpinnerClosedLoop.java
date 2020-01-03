@@ -7,6 +7,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 
 /** SpinnerClosedLoop *********************************************************/
@@ -32,7 +33,7 @@ public class SpinnerClosedLoop extends Subsystem {
 	private static final int ACCEL = RobotMap.SPINNER_ACCEL;
 	
 	/** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	TalonSRX motor;
 	SpinnerEncoder encoder;
 	public boolean spinning = false;

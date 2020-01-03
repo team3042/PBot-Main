@@ -1,6 +1,7 @@
- package org.usfirst.frc.team3042.robot.commands;
+package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3042.lib.Log;
@@ -16,9 +17,9 @@ public class SpinnerEncoder_Dashboard extends Command {
 	
 	
 	/** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
 	SpinnerEncoder encoder = Robot.spinner.getEncoder();
-	
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(encoder));
+
 	
 	/** SpinnerEncoder_Dashboard **********************************************
 	 * Required subsystems will cancel commands when this command is run.
