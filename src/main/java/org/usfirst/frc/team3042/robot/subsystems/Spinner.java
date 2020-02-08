@@ -2,7 +2,6 @@ package org.usfirst.frc.team3042.robot.subsystems;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.commands.Spinner_Drive;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -48,7 +47,7 @@ public class Spinner extends Subsystem {
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
-		setDefaultCommand(new Spinner_Drive());
+		setDefaultCommand(null);
 	}
 	
 	

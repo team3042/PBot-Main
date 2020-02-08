@@ -141,7 +141,7 @@ public class RobotMap {
 	public static final double kF_SPINNER_SPEED = 0.036;
 	public static final int I_ZONE_SPINNER_SPEED = 0;
 	public static final double SPINNER_DEFAULT_POSITION = 1.0; //revolutions
-	public static final double SPINNER_DEFAULT_SPEED = 500; //RPM
+	public static final double SPINNER_DEFAULT_SPEED = 700; //RPM
 	public static final double SPINNER_CALIBRATE_POWER = 0.2;
 	public static final double SPINNER_CALIBRATE_TIME = 10.0; //seconds
 	public static final int SPINNER_COUNT_AVERAGE = 20;

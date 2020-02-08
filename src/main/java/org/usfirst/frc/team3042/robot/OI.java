@@ -28,7 +28,6 @@ public class OI {
 	private static final int JOYSTICK_Y_AXIS = Gamepad.JOY_Y_AXIS;
 	private static final int GAMEPAD_LEFT_TRIGGER = Gamepad.LEFT_TRIGGER;
 	private static final int GAMEPAD_RIGHT_TRIGGER = Gamepad.RIGHT_TRIGGER;
-	private static final double SPINNER_SPEED = RobotMap.SPINNER_DEFAULT_SPEED;
 	//private static final double ROBOT_WIDTH = RobotMap.ROBOT_WIDTH;
 	
 	/** Instance Variables ****************************************************/
@@ -73,8 +72,7 @@ public class OI {
 
 			gamepad.A.toggleWhenPressed(new LightRing_On());
 
-			gamepad.LB.whenPressed(new Spinner_SetSpeed(-1*SPINNER_SPEED));
-			gamepad.RB.whenPressed(new Spinner_SetSpeed(0));
+			gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 
 			/*Big gyroscope (ADIS16448 IMU) isn't working properly*/
 			gamepad.X.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
