@@ -18,8 +18,6 @@ public class Spinner extends Subsystem {
 	private static final int CAN_SPINNER = RobotMap.CAN_SPINNER;
 	private static final NeutralMode BRAKE_MODE = RobotMap.SPINNER_BRAKE_MODE;
 	private static final boolean REVERSE_SPINNER = RobotMap.REVERSE_SPINNER;
-	private static final boolean HAS_ENCODER = RobotMap.HAS_SPINNER_ENCODER;
-	private static final boolean HAS_CLOSED_LOOP = RobotMap.HAS_SPINNER_CLOSED_LOOP;
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL,SendableRegistry.getName(this));
@@ -32,11 +30,8 @@ public class Spinner extends Subsystem {
 	public Spinner() {
 		log.add("Constructor", LOG_LEVEL);
 		
-		if (HAS_ENCODER) {
-			encoder = new SpinnerEncoder(motor);
-			
-			if (HAS_CLOSED_LOOP) closedLoop = new SpinnerClosedLoop(motor, encoder);
-		}
+		encoder = new SpinnerEncoder(motor);
+ 		closedLoop = new SpinnerClosedLoop(motor, encoder);
 		
 		motor.setNeutralMode(BRAKE_MODE);
 		motor.setInverted(REVERSE_SPINNER); 	// affects percent Vbus mode
