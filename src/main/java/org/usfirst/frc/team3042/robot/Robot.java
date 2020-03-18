@@ -40,7 +40,7 @@ public class Robot extends TimedRobot {
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
 
 	UsbCamera camera1;
-	//UsbCamera camera2;
+	// UsbCamera camera2;
 
 	/** robotInit *************************************************************
 	 * This function is run when the robot is first started up and should be
@@ -52,12 +52,12 @@ public class Robot extends TimedRobot {
 		/*Code For Cameras (Microsoft Lifecams)*/
 
 		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
-		//camera2 = CameraServer.getInstance().startAutomaticCapture(1);
+		// camera2 = CameraServer.getInstance().startAutomaticCapture(1);
 
 		camera1.setResolution(320, 240);
 		camera1.setFPS(15);
-		//camera2.setResolution(1280, 720);
-		//camera2.setFPS(15);
+		// camera2.setResolution(1280, 720);
+		// camera2.setFPS(15);
 
 		oi = new OI();
 		chooser.setDefaultOption("Default Auto", new ExampleCommand());

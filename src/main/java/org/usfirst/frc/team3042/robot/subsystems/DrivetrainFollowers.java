@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 
-/** DrivetrainFollowers **********************************************************
+/** DrivetrainFollowers *******************************************************
  * Motor controllers for secondary drivetrain motors
  */
 public class DrivetrainFollowers extends Subsystem {

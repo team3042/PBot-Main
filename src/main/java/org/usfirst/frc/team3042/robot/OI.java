@@ -3,7 +3,7 @@ package org.usfirst.frc.team3042.robot;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
-//import org.usfirst.frc.team3042.lib.Path;
+// import org.usfirst.frc.team3042.lib.Path;
 import org.usfirst.frc.team3042.robot.commands.LightRing_On;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
@@ -26,7 +26,7 @@ public class OI {
 	private static final int JOYSTICK_Y_AXIS = Gamepad.JOY_Y_AXIS;
 	private static final int GAMEPAD_LEFT_TRIGGER = Gamepad.LEFT_TRIGGER;
 	private static final int GAMEPAD_RIGHT_TRIGGER = Gamepad.RIGHT_TRIGGER;
-	//private static final double ROBOT_WIDTH = RobotMap.ROBOT_WIDTH;
+	// private static final double ROBOT_WIDTH = RobotMap.ROBOT_WIDTH;
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(RobotMap.LOG_OI, "OI");
@@ -76,32 +76,32 @@ public class OI {
 
 		/*Code For Autonomous Driving*/
 
-		//double turnRadius = 1.5 * ROBOT_WIDTH;
-		//Path testPath = new Path();
-		//testPath.addStraight(36.0, 18.0);
-		//testPath.addRightTurn(90.0, turnRadius, 21.0);
-		//testPath.addLeftTurn(120, turnRadius, 21.0);
-		//testPath.addLeftTurn(120, turnRadius, -21.0);
-		//testPath.addRightTurn(90.0, turnRadius, -21.0);
-		//testPath.addStraight(36.0, -18.0);
+		// double turnRadius = 1.5 * ROBOT_WIDTH;
+		// Path testPath = new Path();
+		// testPath.addStraight(36.0, 18.0);
+		// testPath.addRightTurn(90.0, turnRadius, 21.0);
+		// testPath.addLeftTurn(120, turnRadius, 21.0);
+		// testPath.addLeftTurn(120, turnRadius, -21.0);
+		// testPath.addRightTurn(90.0, turnRadius, -21.0);
+		// testPath.addStraight(36.0, -18.0);
 		
-		//double turnInPlace = 0.5 * ROBOT_WIDTH;
-		//Path testPath2 = new Path();
-		//testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
-		//testPath2.addRightTurn(420.0, turnInPlace, 21.0);
+		// double turnInPlace = 0.5 * ROBOT_WIDTH;
+		// Path testPath2 = new Path();
+		// testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
+		// testPath2.addRightTurn(420.0, turnInPlace, 21.0);
 	
 		/*OLD OR UNUSED CONTROLS*/
 
-		//gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
+		// gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
 		
-		//gamepad.X.whenPressed(new Gyroscope_Dashboard());
+		// gamepad.X.whenPressed(new Gyroscope_Dashboard());
 
-		//gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
-		//gamepad.B.whenPressed(new Drivetrain_Null());
+		// gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
+		// gamepad.B.whenPressed(new Drivetrain_Null());
 		
-		//gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
+		// gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
 		
-		//gamepad.Y.whenPressed(new Drivetrain_Calibrate());
+		// gamepad.Y.whenPressed(new Drivetrain_Calibrate());
 	}
 	
 	/** Access to the driving axes values *************************************

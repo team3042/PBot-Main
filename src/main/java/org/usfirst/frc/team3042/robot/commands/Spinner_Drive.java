@@ -22,7 +22,7 @@ public class Spinner_Drive extends Command {
 	OI oi = Robot.oi;
 	
 	
-	/** Spinner_Drive ********************************************************
+	/** Spinner_Drive *********************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
 	public Spinner_Drive() {

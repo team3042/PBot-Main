@@ -90,7 +90,7 @@ public class SpinnerEncoder extends Subsystem {
 	 * so F = power * 1023 / speed
 	 */
 	public double rpmToF(double rpm, double power) {
-		//Convert to counts per 100 ms
+		// Convert to counts per 100 ms
 		double speed = rpm * 4.0 * COUNTS_PER_REV / 600.0;
 		double kF = power * 1023.0 / speed;
 		
