@@ -8,38 +8,27 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
  * The robot configuration file.
  */
 public class RobotMap {
-	/** Robot selector ********************************************************/
-	public static enum Bot {PBOT, ARTEMIS;}
-	// Set the bot to which you intend to push code.
-	private static Bot currentBot = Bot.PBOT;
-
-	public static final boolean IS_PBOT 	= (currentBot == Bot.PBOT);
-	public static final boolean IS_ARTEMIS = (currentBot == Bot.ARTEMIS);
-	
 	/** Robot Size Parameters *************************************************
 	 * The units of the wheel diameter determine the units of the position 
 	 * and speed closed-loop commands. For example, if the diameter is given 
 	 * in inches, position will be in inches and speed in inches per second.
 	 */
 	public static final double WHEEL_DIAMETER = 4.0;
-	public static final double ROBOT_WIDTH = (IS_PBOT) ? 15.0 : 0.0;
+	public static final double ROBOT_WIDTH = 15.0;
 	
 	/** USB ports *************************************************************/					
 	public static final int USB_JOYSTICK_LEFT 	= 0;
 	public static final int USB_JOYSTICK_RIGHT 	= 1;
-	public static final int USB_GAMEPAD 		= IS_PBOT ? 0 : 2;
+	public static final int USB_GAMEPAD 		= 0;
 
 	/** PWM ports *************************************************************/
 	
 	/** CAN ID numbers ********************************************************/
-	public static final int CAN_LEFT_MOTOR 	= 		IS_PBOT 	? 3 :
-													IS_ARTEMIS 	? 0 : 0;
-	public static final int CAN_RIGHT_MOTOR = 		IS_PBOT 	? 9 :
-													IS_ARTEMIS 	? 0 : 0;
-	public static final int CAN_LEFT_FOLLOWER = 	IS_ARTEMIS 	? 0 : 0;
-	public static final int CAN_RIGHT_FOLLOWER = 	IS_ARTEMIS 	? 0 : 0;
-	public static final int CAN_SPINNER 	= 		IS_PBOT		? 10 :
-													IS_ARTEMIS 	? 0 : 0;
+	public static final int CAN_LEFT_MOTOR 	= 		3;
+	public static final int CAN_RIGHT_MOTOR = 		90;
+	public static final int CAN_LEFT_FOLLOWER = 	0;
+	public static final int CAN_RIGHT_FOLLOWER = 	0;
+	public static final int CAN_SPINNER 	= 		10;
 	
 	/** PCM channels **********************************************************/
 	public static final int LIGHT_RING_CHANNEL = 1;
@@ -50,21 +39,19 @@ public class RobotMap {
 	//see http://www.ni.com/pdf/manuals/374474a.pdf for additional info on the RoboRio
 	
 	/** OI Settings ***********************************************************/
-	public static final boolean USE_JOYSTICKS = !IS_PBOT;
+	public static final boolean USE_JOYSTICKS = false;
 	public static final double JOYSTICK_DRIVE_SCALE = 0.5;
 	public static final double TRIGGER_SPINNER_SCALE = 0.1;
 	public static final double JOYSTICK_DEAD_ZONE = 0.0;
 
 	/** Drivetrain Settings ***************************************************/
 	public static final NeutralMode DRIVETRAIN_BRAKE_MODE = NeutralMode.Brake;
-	public static final boolean REVERSE_LEFT_MOTOR = 	(IS_PBOT) ? true : false;
-	public static final boolean REVERSE_RIGHT_MOTOR = 	(IS_PBOT) ? false: false;
+	public static final boolean REVERSE_LEFT_MOTOR = 	true;
+	public static final boolean REVERSE_RIGHT_MOTOR = 	false;
 	// Maximum Acceleration given in power per second
 	public static final double ACCELERATION_MAX = 1.5;
-	public static final double kF_DRIVE_LEFT = 	(IS_PBOT) 		?  0.1817180616740088 :
-												(IS_ARTEMIS) 	? 0.0 : 0.0;
-	public static final double kF_DRIVE_RIGHT = (IS_PBOT) 		?  0.16686239968682717 :
-												(IS_ARTEMIS) 	? 0.0 : 0.0;
+	public static final double kF_DRIVE_LEFT = 	0.1817180616740088;
+	public static final double kF_DRIVE_RIGHT = 0.16686239968682717;
 	
 	/** Drivetrain Encoder Settings *******************************************/
 	//Encoder counts per revolution
@@ -72,19 +59,15 @@ public class RobotMap {
 	public static final int COUNTS_PER_REVOLUTION = 1440;
 	//How often the encoders update on the CAN, in milliseconds
 	public static final int ENCODER_FRAME_RATE = 10;
-	public static final boolean SENSOR_PHASE_LEFT = 	(IS_PBOT) ? false: false;
-	public static final boolean SENSOR_PHASE_RIGHT = 	(IS_PBOT) ? false: false;
+	public static final boolean SENSOR_PHASE_LEFT = 	false;
+	public static final boolean SENSOR_PHASE_RIGHT = 	false;
 	
 	/** Drivetrain Autonomous Settings ****************************************/
 	public static final int AUTON_PROFILE = 0;
-	public static final double kP_AUTON = 		(IS_PBOT) 		? 0.4 :
-												(IS_ARTEMIS) 	? 0.0 : 0.0;
-	public static final double kI_AUTON = 		(IS_PBOT) 		? 0.0 :
-												(IS_ARTEMIS) 	? 0.0 : 0.0;
-	public static final double kD_AUTON = 		(IS_PBOT) 		? 0.8 :
-												(IS_ARTEMIS) 	? 0.0 : 0.0;
-	public static final int I_ZONE_AUTON =		(IS_PBOT)		? 0 :
-												(IS_ARTEMIS)	? 0 : 0;
+	public static final double kP_AUTON = 		0.4;
+	public static final double kI_AUTON = 		0.0;
+	public static final double kD_AUTON = 		0.8;
+	public static final int I_ZONE_AUTON =		0;
 	//The rate of pushing motion profile points to the talon, in ms
 	public static final int AUTON_FRAME_RATE = 10;
 	//Parameters for calibrating the F-gain

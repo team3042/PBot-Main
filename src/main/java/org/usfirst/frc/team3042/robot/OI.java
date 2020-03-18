@@ -14,8 +14,6 @@ import org.usfirst.frc.team3042.robot.subsystems.Spinner;
  */
 public class OI {	
 	/** Configuration Constants ***********************************************/
-	private static final boolean IS_PBOT = RobotMap.IS_PBOT;
-	private static final boolean IS_ARTEMIS = RobotMap.IS_ARTEMIS;
 	private static final int USB_GAMEPAD = RobotMap.USB_GAMEPAD;
 	private static final int USB_JOY_LEFT = RobotMap.USB_JOYSTICK_LEFT;
 	private static final int USB_JOY_RIGHT = RobotMap.USB_JOYSTICK_RIGHT;
@@ -68,50 +66,42 @@ public class OI {
 		}
 		
 		/** PBOT Controls *****************************************************/
-		if (IS_PBOT) {
+		gamepad.A.toggleWhenPressed(new LightRing_On());
 
-			gamepad.A.toggleWhenPressed(new LightRing_On());
+		gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 
-			gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
+		/*Big gyroscope (ADIS16448 IMU) isn't working properly*/
+		gamepad.X.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
+		gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
 
-			/*Big gyroscope (ADIS16448 IMU) isn't working properly*/
-			gamepad.X.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
-			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+		/*Code For Autonomous Driving*/
 
-			/*Code For Autonomous Driving*/
-
-			//double turnRadius = 1.5 * ROBOT_WIDTH;
-			//Path testPath = new Path();
-			//testPath.addStraight(36.0, 18.0);
-			//testPath.addRightTurn(90.0, turnRadius, 21.0);
-			//testPath.addLeftTurn(120, turnRadius, 21.0);
-			//testPath.addLeftTurn(120, turnRadius, -21.0);
-			//testPath.addRightTurn(90.0, turnRadius, -21.0);
-			//testPath.addStraight(36.0, -18.0);
-			
-			//double turnInPlace = 0.5 * ROBOT_WIDTH;
-			//Path testPath2 = new Path();
-			//testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
-			//testPath2.addRightTurn(420.0, turnInPlace, 21.0);
+		//double turnRadius = 1.5 * ROBOT_WIDTH;
+		//Path testPath = new Path();
+		//testPath.addStraight(36.0, 18.0);
+		//testPath.addRightTurn(90.0, turnRadius, 21.0);
+		//testPath.addLeftTurn(120, turnRadius, 21.0);
+		//testPath.addLeftTurn(120, turnRadius, -21.0);
+		//testPath.addRightTurn(90.0, turnRadius, -21.0);
+		//testPath.addStraight(36.0, -18.0);
 		
-			/*OLD OR UNUSED CONTROLS*/
+		//double turnInPlace = 0.5 * ROBOT_WIDTH;
+		//Path testPath2 = new Path();
+		//testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
+		//testPath2.addRightTurn(420.0, turnInPlace, 21.0);
+	
+		/*OLD OR UNUSED CONTROLS*/
 
-			//gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
-			
-			//gamepad.X.whenPressed(new Gyroscope_Dashboard());
-
-			//gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
-			//gamepad.B.whenPressed(new Drivetrain_Null());
-			
-			//gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
-			
-			//gamepad.Y.whenPressed(new Drivetrain_Calibrate());
-		}
+		//gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
 		
-		/** Artemis Controls **************************************************/
-		if (IS_ARTEMIS) {
-			
-		}
+		//gamepad.X.whenPressed(new Gyroscope_Dashboard());
+
+		//gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
+		//gamepad.B.whenPressed(new Drivetrain_Null());
+		
+		//gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
+		
+		//gamepad.Y.whenPressed(new Drivetrain_Calibrate());
 	}
 	
 	/** Access to the driving axes values *************************************
