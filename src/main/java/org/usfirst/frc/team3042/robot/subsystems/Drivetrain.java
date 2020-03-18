@@ -29,7 +29,6 @@ public class Drivetrain extends Subsystem {
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	TalonSRX leftMotor = new TalonSRX(CAN_LEFT_MOTOR);
 	TalonSRX rightMotor = new TalonSRX(CAN_RIGHT_MOTOR);
-	DrivetrainFollowers followers;
 	DrivetrainEncoders encoders;
 	DrivetrainAuton auton;
 
@@ -40,7 +39,6 @@ public class Drivetrain extends Subsystem {
 	public Drivetrain() {
 		log.add("Constructor", LOG_LEVEL);
 		
-		followers = new DrivetrainFollowers();
 		encoders = new DrivetrainEncoders(leftMotor, rightMotor);
 		auton = new DrivetrainAuton(leftMotor, rightMotor, encoders);
 		

@@ -19,8 +19,6 @@ public class RobotMap {
 	/** CAN ID numbers ********************************************************/
 	public static final int CAN_LEFT_MOTOR = 3;
 	public static final int CAN_RIGHT_MOTOR = 90;
-	public static final int CAN_LEFT_FOLLOWER = 0;
-	public static final int CAN_RIGHT_FOLLOWER = 0;
 	public static final int CAN_SPINNER = 10;
 	
 	/** Drivetrain Settings ***************************************************/
@@ -145,7 +143,6 @@ public class RobotMap {
 	public static final Log.Level	LOG_POV_BUTTON				= Log.Level.ERROR;
 	/** Subsystems ************************************************************/
 	public static final Log.Level	LOG_DRIVETRAIN				= Log.Level.TRACE;
-	public static final Log.Level	LOG_DRIVETRAIN_FOLLOWERS	= Log.Level.TRACE;
 	public static final Log.Level	LOG_DRIVETRAIN_ENCODERS 	= Log.Level.DEBUG;
 	public static final Log.Level	LOG_DRIVETRAIN_AUTON		= Log.Level.DEBUG;
 	public static final Log.Level	LOG_SPINNER					= Log.Level.TRACE;
