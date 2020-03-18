@@ -56,8 +56,6 @@ public class RobotMap {
 	public static final double JOYSTICK_DEAD_ZONE = 0.0;
 
 	/** Drivetrain Settings ***************************************************/
-	public static final boolean HAS_DRIVETRAIN = true;
-	public static final boolean HAS_FOLLOWERS = !IS_PBOT;
 	public static final NeutralMode DRIVETRAIN_BRAKE_MODE = NeutralMode.Brake;
 	public static final boolean REVERSE_LEFT_MOTOR = 	(IS_PBOT) ? true : false;
 	public static final boolean REVERSE_RIGHT_MOTOR = 	(IS_PBOT) ? false: false;
@@ -69,7 +67,6 @@ public class RobotMap {
 												(IS_ARTEMIS) 	? 0.0 : 0.0;
 	
 	/** Drivetrain Encoder Settings *******************************************/
-	public static final boolean HAS_ENCODERS = true;
 	//Encoder counts per revolution
 	//In quadrature mode, actual counts will be 4x this; e.g., 360 -> 1440
 	public static final int COUNTS_PER_REVOLUTION = 1440;
@@ -79,7 +76,6 @@ public class RobotMap {
 	public static final boolean SENSOR_PHASE_RIGHT = 	(IS_PBOT) ? false: false;
 	
 	/** Drivetrain Autonomous Settings ****************************************/
-	public static final boolean HAS_AUTON = HAS_ENCODERS;
 	public static final int AUTON_PROFILE = 0;
 	public static final double kP_AUTON = 		(IS_PBOT) 		? 0.4 :
 												(IS_ARTEMIS) 	? 0.0 : 0.0;
@@ -115,19 +111,16 @@ public class RobotMap {
 	public static final double kI_GYRO_INTERVAL = 0.0;
 	
 	/** Spinner Settings ******************************************************/
-	public static final boolean HAS_SPINNER = IS_PBOT;
 	public static final NeutralMode SPINNER_BRAKE_MODE = NeutralMode.Brake;
 	public static final boolean REVERSE_SPINNER = false;
 	
 	/** Spinner Encoder Settings **********************************************/
-	public static final boolean HAS_SPINNER_ENCODER = HAS_SPINNER;
 	public static final int SPINNER_ENCODER_FRAME_RATE = 10;
 	public static final int SPINNER_ENCODER_COUNTS_PER_REV = 4096;
 	public static final boolean REVERSE_SPINNER_ENCODER = false;
 	public static final boolean SPINNER_SENSOR_PHASE = false;
 	
 	/** Spinner Closed-Loop Settings ******************************************/
-	public static final boolean HAS_SPINNER_CLOSED_LOOP = HAS_SPINNER;
 	public static final int SPINNER_POSITION_PROFILE = 0;
 	public static final double kP_SPINNER_POSITION = 0.51;
 	public static final double kI_SPINNER_POSITION = 0.0;
@@ -151,11 +144,9 @@ public class RobotMap {
 	public static final int SPINNER_ACCEL = 500; //RPM per sec
 	
 	/** Gyroscope Settings ****************************************************/
-	public static final boolean HAS_GYROSCOPE = true;
 	public static final double GYROSCOPE_SCALE = 1.0;
 	
-	/** LEDRing Settings ******************************************************/
-	public static final boolean HAS_LIGHT_RING = true;
+	/** Light Ring Settings ******************************************************/
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
