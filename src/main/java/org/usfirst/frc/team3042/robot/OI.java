@@ -73,22 +73,6 @@ public class OI {
 		/*Big gyroscope (ADIS16448 IMU) isn't working properly*/
 		gamepad.X.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
 		gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
-
-		/*Code For Autonomous Driving*/
-
-		// double turnRadius = 1.5 * ROBOT_WIDTH;
-		// Path testPath = new Path();
-		// testPath.addStraight(36.0, 18.0);
-		// testPath.addRightTurn(90.0, turnRadius, 21.0);
-		// testPath.addLeftTurn(120, turnRadius, 21.0);
-		// testPath.addLeftTurn(120, turnRadius, -21.0);
-		// testPath.addRightTurn(90.0, turnRadius, -21.0);
-		// testPath.addStraight(36.0, -18.0);
-		
-		// double turnInPlace = 0.5 * ROBOT_WIDTH;
-		// Path testPath2 = new Path();
-		// testPath2.addLeftTurn(380.0, turnInPlace, 21.0);
-		// testPath2.addRightTurn(420.0, turnInPlace, 21.0);
 	
 		/*OLD OR UNUSED CONTROLS*/
 
