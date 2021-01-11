@@ -18,7 +18,7 @@ public class RobotMap {
 	
 	/** CAN ID numbers ********************************************************/
 	public static final int CAN_LEFT_MOTOR = 3;
-	public static final int CAN_RIGHT_MOTOR = 90;
+	public static final int CAN_RIGHT_MOTOR = 9;
 	public static final int CAN_SPINNER = 10;
 	
 	/** Drivetrain Settings ***************************************************/
