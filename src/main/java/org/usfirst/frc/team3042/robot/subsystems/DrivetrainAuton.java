@@ -29,7 +29,7 @@ public class DrivetrainAuton extends Subsystem {
 	private static final double kF_RIGHT = RobotMap.kF_DRIVE_RIGHT;
 	private static final int I_ZONE = RobotMap.I_ZONE_AUTON;
 	private static final int DT_MS = RobotMap.AUTON_DT_MS;
-	//The Frame Rate is given in ms
+	// The Frame Rate is given in ms
 	private static final int FRAME_RATE = RobotMap.AUTON_FRAME_RATE;
 	private static final int TIMEOUT = RobotMap.AUTON_TIMEOUT;
 	private static final int PIDIDX = RobotMap.AUTON_PIDIDX;
@@ -66,7 +66,7 @@ public class DrivetrainAuton extends Subsystem {
 		initMotor(rightMotor, kF_RIGHT);;
 
 		/** Starting talons processing motion profile **/
-		//Convert from ms to sec for the notifier
+		// Convert from ms to sec for the notifier
 		double frameRateSec = (double)FRAME_RATE / 1000.0;
 		notifier = new Notifier(new PeriodicRunnable());
 		notifier.startPeriodic(frameRateSec);
@@ -92,7 +92,7 @@ public class DrivetrainAuton extends Subsystem {
 	}
 	
 
-	/** prepareMotionProfile *****************************************************
+	/** prepareMotionProfile **************************************************
 	 * Clears out any old trajectories and prepares to receive new trajectory 
 	 * points.
 	 */

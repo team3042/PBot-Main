@@ -80,7 +80,7 @@ public class Path {
 		rightSpeed.add(speed * innerScale);
 	}
 	private double convertDistance(double angle, double radius) {
-		angle *= Math.PI / 180.0; //convert to radians
+		angle *= Math.PI / 180.0; // convert to radians
 		double distance = radius * angle;
 		return convertDistance(distance); // convert to revolutions
 	}
