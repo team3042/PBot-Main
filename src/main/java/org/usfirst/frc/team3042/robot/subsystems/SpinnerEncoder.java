@@ -55,7 +55,7 @@ public class SpinnerEncoder extends Subsystem {
 	
 	/** Reset the encoder zero position ****************************************/
 	public void reset() {
-		int counts = encoder.getSelectedSensorPosition(PIDIDX);
+		int counts = (int)(encoder.getSelectedSensorPosition(PIDIDX));
 		positionZero = countsToRev(counts);
 	}
 	
@@ -65,14 +65,14 @@ public class SpinnerEncoder extends Subsystem {
 	 * Encoder speed returns counts per 100 ms, convert to RPM for output
 	 */
 	public double getPosition() {
-		int counts = encoder.getSelectedSensorPosition(PIDIDX);
+		int counts = (int)(encoder.getSelectedSensorPosition(PIDIDX));
 		return countsToRev(counts) - positionZero;
 	}
 	private double countsToRev(int counts) {
 		return (double)counts / COUNTS_PER_REV;
 	}
 	public double getSpeed() {
-		int cp100ms = encoder.getSelectedSensorVelocity(PIDIDX);
+		int cp100ms = (int)(encoder.getSelectedSensorVelocity(PIDIDX));
 		
 		return (double)cp100ms * 10.0 * 60.0 / COUNTS_PER_REV;
 	}
