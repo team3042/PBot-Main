@@ -63,6 +63,7 @@ public class Robot extends TimedRobot {
 		chooser.setDefaultOption("Default Auto", new ExampleCommand());
 		chooser.addOption("My Auto", new ExampleCommand());
 		SmartDashboard.putData("Auto Mode", chooser);
+		//chooser.addOption("My Auto", new DrivetrainAuton_Drive(new path name));
 	}
 
 	/** disabledInit **********************************************************
