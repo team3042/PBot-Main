@@ -8,22 +8,18 @@ import org.usfirst.frc.team3042.lib.math.RigidTransform2d;
 import org.usfirst.frc.team3042.lib.math.Rotation2d;
 import org.usfirst.frc.team3042.lib.math.Translation2d;
 
-public class BarrelRacing implements PathContainer {
+public class Curves implements PathContainer {
     
     @Override
     public Path buildPath() {
         ArrayList<Waypoint> waypoints = new ArrayList<Waypoint>();
-        waypoints.add(new Waypoint(4.0,-10.0,0,60));
-        waypoints.add(new Waypoint(260,247,15,60));
-        waypoints.add(new Waypoint(282,247,0,60));
-        waypoints.add(new Waypoint(230,242,0,60));
-        waypoints.add(new Waypoint(260,247,15,60));
-        waypoints.add(new Waypoint(282,247,0,60));
-        waypoints.add(new Waypoint(230,242,0,60));
-        waypoints.add(new Waypoint(260,247,15,60));
-        waypoints.add(new Waypoint(282,247,0,60));
-        waypoints.add(new Waypoint(230,242,0,60));
-        waypoints.add(new Waypoint(260,247,15,60));
+        waypoints.add(new Waypoint(0, 0, 0, 60));
+        waypoints.add(new Waypoint(5, 0, 1, 60));
+        waypoints.add(new Waypoint(0, 0, 1, 60));
+        waypoints.add(new Waypoint(5, 0, 3, 60));
+        waypoints.add(new Waypoint(0, 0, 3, 60));
+        waypoints.add(new Waypoint(5, 0, 5, 60));
+        waypoints.add(new Waypoint(0, 0, 5, 60));
 
         return PathBuilder.buildPathFromWaypoints(waypoints);
     }

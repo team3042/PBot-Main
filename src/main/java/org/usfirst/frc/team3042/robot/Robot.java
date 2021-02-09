@@ -1,7 +1,10 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
+import org.usfirst.frc.team3042.robot.commands.DrivetrainAuton_Drive;
 import org.usfirst.frc.team3042.robot.commands.ExampleCommand;
+import org.usfirst.frc.team3042.robot.paths.Curves;
+import org.usfirst.frc.team3042.robot.paths.Square;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
@@ -63,7 +66,9 @@ public class Robot extends TimedRobot {
 		chooser.setDefaultOption("Default Auto", new ExampleCommand());
 		chooser.addOption("My Auto", new ExampleCommand());
 		SmartDashboard.putData("Auto Mode", chooser);
-		//chooser.addOption("My Auto", new DrivetrainAuton_Drive(new path name));
+
+		chooser.addOption("Square Path", new DrivetrainAuton_Drive(new Square().buildPath()));
+		chooser.addOption("Curves", new DrivetrainAuton_Drive(new Curves().buildPath()));
 	}
 
 	/** disabledInit **********************************************************
