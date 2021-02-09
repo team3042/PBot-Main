@@ -63,12 +63,13 @@ public class Robot extends TimedRobot {
 		// camera2.setFPS(15);
 
 		oi = new OI();
+		
 		chooser.setDefaultOption("Default Auto", new ExampleCommand());
-		chooser.addOption("My Auto", new ExampleCommand());
-		SmartDashboard.putData("Auto Mode", chooser);
 
 		chooser.addOption("Square Path", new DrivetrainAuton_Drive(new Square().buildPath()));
 		chooser.addOption("Curves", new DrivetrainAuton_Drive(new Curves().buildPath()));
+
+		SmartDashboard.putData("Auto Mode", chooser);
 	}
 
 	/** disabledInit **********************************************************
