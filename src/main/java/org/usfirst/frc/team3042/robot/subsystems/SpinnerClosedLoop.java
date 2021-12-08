@@ -9,7 +9,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-
 /** SpinnerClosedLoop *********************************************************/
 public class SpinnerClosedLoop extends Subsystem {
 	/** Configuration Constants ***********************************************/
@@ -38,7 +37,6 @@ public class SpinnerClosedLoop extends Subsystem {
 	SpinnerEncoder encoder;
 	public boolean spinning = false;
 	
-	
 	/** SpinnerClosedLoop *****************************************************/
 	public SpinnerClosedLoop(TalonSRX spinnerMotor, SpinnerEncoder spinnerEncoder) {
 		log.add("Constructor", LOG_LEVEL);
@@ -59,19 +57,15 @@ public class SpinnerClosedLoop extends Subsystem {
 		motor.config_IntegralZone(SPEED_PROFILE, I_ZONE_SPEED, TIMEOUT);
 	}
 	
-	
 	/** initDefaultCommand ****************************************************
-	 * Set the default command for the subsystem.
-	 */
+	 * Set the default command for the subsystem. */
 	public void initDefaultCommand() {
 		// setDefaultCommand(new ExampleCommand());
 	}
 
-
 	/** Spinner Closed-Loop Control *******************************************
 	 * Input units for speed is RPM, convert to counts per 100ms for talon
-	 * Input units for Position is revolutions, convert to counts for talon
-	 */
+	 * Input units for Position is revolutions, convert to counts for talon */
 	public void setSpeed(double rpm){
 		log.add("Speed", rpm, LOG_LEVEL);
 
@@ -104,7 +98,6 @@ public class SpinnerClosedLoop extends Subsystem {
 		motor.configMotionAcceleration((int)accel, TIMEOUT);
 		motor.set(ControlMode.MotionMagic, counts);		
 	}
-	
 	
 	private double positionToCounts(double position) {
 		position += encoder.getPositionZero();

@@ -3,15 +3,13 @@ package org.usfirst.frc.team3042.robot;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
-// import org.usfirst.frc.team3042.lib.Path;
 import org.usfirst.frc.team3042.robot.commands.LightRing_On;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 
 /** OI ************************************************************************
  * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
- */
+ * interface to the commands and command groups that allow control of the robot. */
 public class OI {	
 	/** Configuration Constants ***********************************************/
 	private static final int USB_GAMEPAD = RobotMap.USB_GAMEPAD;
@@ -26,7 +24,6 @@ public class OI {
 	private static final int JOYSTICK_Y_AXIS = Gamepad.JOY_Y_AXIS;
 	private static final int GAMEPAD_LEFT_TRIGGER = Gamepad.LEFT_TRIGGER;
 	private static final int GAMEPAD_RIGHT_TRIGGER = Gamepad.RIGHT_TRIGGER;
-	// private static final double ROBOT_WIDTH = RobotMap.ROBOT_WIDTH;
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(RobotMap.LOG_OI, "OI");
@@ -44,8 +41,7 @@ public class OI {
 	 * gamepad.Y.whenReleased(new ExampleCommand());
 	 * gamepad.LT.toggleWhenActive(new ExampleCommand());
 	 * gamepad.RT.whenActive(new ExampleCommand());
-	 * gamepad.POVUp.whileActive(new ExampleCommand());
-	 */
+	 * gamepad.POVUp.whileActive(new ExampleCommand()); */
 	public OI() {
 		log.add("OI Constructor", Log.Level.TRACE);
 		
@@ -70,27 +66,12 @@ public class OI {
 
 		gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 
-		/*Big gyroscope (ADIS16448 IMU) isn't working properly*/
 		gamepad.X.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
 		gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
-	
-		/*OLD OR UNUSED CONTROLS*/
-
-		// gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
-		
-		// gamepad.X.whenPressed(new Gyroscope_Dashboard());
-
-		// gamepad.B.whenPressed(new DrivetrainAuton_Drive(testPath));
-		// gamepad.B.whenPressed(new Drivetrain_Null());
-		
-		// gamepad.Y.whenPressed(new DrivetrainAuton_Drive(testPath2));
-		
-		// gamepad.Y.whenPressed(new Drivetrain_Calibrate());
 	}
 	
 	/** Access to the driving axes values *************************************
-	 * A negative has been added to make pushing forward positive.
-	 */
+	 * A negative has been added to make pushing forward positive. */
 	public double getDriveLeft() {
 		double joystickValue = joyLeft.getRawAxis(driveAxisLeft);
 		joystickValue = scaleJoystick(joystickValue);

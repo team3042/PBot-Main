@@ -11,7 +11,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-
 /** SpinnerEncoder ************************************************************/
 public class SpinnerEncoder extends Subsystem {
 	/** Configuration Constants ***********************************************/
@@ -22,12 +21,10 @@ public class SpinnerEncoder extends Subsystem {
 	private static final int PIDIDX = RobotMap.SPINNER_PIDIDX;
 	private static final boolean SENSOR_PHASE = RobotMap.SPINNER_SENSOR_PHASE;
 
-	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	TalonSRX encoder;
 	double positionZero;
-	
 	
 	/** SpinnerEncoder ********************************************************/
 	public SpinnerEncoder(TalonSRX motor) {
@@ -35,23 +32,18 @@ public class SpinnerEncoder extends Subsystem {
 
 		encoder = motor;
 		
-		encoder.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 
-				PIDIDX, TIMEOUT);
-		encoder.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, 
-				FRAME_RATE, TIMEOUT);
+		encoder.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, PIDIDX, TIMEOUT);
+		encoder.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, FRAME_RATE, TIMEOUT);
 		encoder.setSensorPhase(SENSOR_PHASE); 	// affects closed-loop mode
 		
 		reset();
 	}
 	
-	
 	/** initDefaultCommand ****************************************************
-	 * Set the default command for the subsystem.
-	 */
+	 * Set the default command for the subsystem. */
 	public void initDefaultCommand() {
 		setDefaultCommand(new SpinnerEncoder_Dashboard());
 	}
-	
 	
 	/** Reset the encoder zero position ****************************************/
 	public void reset() {
@@ -59,11 +51,9 @@ public class SpinnerEncoder extends Subsystem {
 		positionZero = countsToRev(counts);
 	}
 	
-	
 	/** Get the encoder position and velocity *********************************
 	 * Encoder position returns counts, convert to revolutions for output
-	 * Encoder speed returns counts per 100 ms, convert to RPM for output
-	 */
+	 * Encoder speed returns counts per 100 ms, convert to RPM for output */
 	public double getPosition() {
 		int counts = (int)(encoder.getSelectedSensorPosition(PIDIDX));
 		return countsToRev(counts) - positionZero;
@@ -80,15 +70,12 @@ public class SpinnerEncoder extends Subsystem {
 		return positionZero;
 	}
 	
-	
 	/** rpmToF ****************************************************************
 	 * Convert RPM reading into an F-Gain
 	 * Note that 1023 is the native full-forward power of the talons, 
 	 * equivalent to setting the power to 1.0.
 	 * The speed has to be converted from rpm to encoder counts per 100ms
-	 * 
-	 * so F = power * 1023 / speed
-	 */
+	 * so F = power * 1023 / speed */
 	public double rpmToF(double rpm, double power) {
 		// Convert to counts per 100 ms
 		double speed = rpm * 4.0 * COUNTS_PER_REV / 600.0;

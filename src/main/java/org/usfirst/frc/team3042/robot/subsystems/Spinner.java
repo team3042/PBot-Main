@@ -10,7 +10,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-
 /** Spinner *******************************************************************/
 public class Spinner extends Subsystem {
 	/** Configuration Constants ***********************************************/
@@ -25,7 +24,6 @@ public class Spinner extends Subsystem {
 	SpinnerEncoder encoder;
 	public SpinnerClosedLoop closedLoop;
 	
-	
 	/** Spinner ***************************************************************/
 	public Spinner() {
 		log.add("Constructor", LOG_LEVEL);
@@ -37,14 +35,11 @@ public class Spinner extends Subsystem {
 		motor.setInverted(REVERSE_SPINNER); 	// affects percent Vbus mode
 	}
 	
-	
 	/** initDefaultCommand ****************************************************
-	 * Set the default command for the subsystem.
-	 */
+	 * Set the default command for the subsystem. */
 	public void initDefaultCommand() {
 		setDefaultCommand(null);
 	}
-	
 	
 	/** Command Control *******************************************************/
 	public void setPower(double power) {

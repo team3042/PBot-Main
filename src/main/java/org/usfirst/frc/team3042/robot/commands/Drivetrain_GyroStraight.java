@@ -10,10 +10,8 @@ import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.DrivetrainEncoders;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
-
 /** Drivetrain_GyroStraight ***************************************************
- * Command for driving straight using gyroscope feedback.
- */
+ * Command for driving straight using gyroscope feedback. */
 public class Drivetrain_GyroStraight extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_GYROSCOPE;
@@ -25,7 +23,6 @@ public class Drivetrain_GyroStraight extends Command {
 	private static final double CIRCUMFRENCE = RobotMap.WHEEL_DIAMETER * Math.PI;
 	private static final double MAX_CORRECTION = RobotMap.MAX_SPEED_GYRO;
 
-	
 	/** Instance Variables ****************************************************/
 	Drivetrain drivetrain = Robot.drivetrain;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(drivetrain));
@@ -34,15 +31,11 @@ public class Drivetrain_GyroStraight extends Command {
 	double leftPower, rightPower, lastError, integralError;
 	double goalAngle, goalDistance;
 	
-	
 	/** Drivetrain_GyroStraight ***********************************************
 	 * Required subsystems will cancel commands when this command is run.
-	 * 
 	 * distance is given in physical units matching the wheel diameter unit
-	 * 
 	 * speed is given in physical units per second. The physical units should 
-	 * match that of the Wheel diameter.
-	 */
+	 * match that of the Wheel diameter.  */
 	public Drivetrain_GyroStraight(double distance, double speed) {
 		log.add("Constructor", Log.Level.TRACE);
 		requires(drivetrain);
@@ -56,10 +49,8 @@ public class Drivetrain_GyroStraight extends Command {
 		rightPower = encoders.rpmToPower(rpm, kF_RIGHT);
 	}
 	
-	
 	/** initialize ************************************************************
-	 * Called just before this Command runs the first time
-	 */
+	 * Called just before this Command runs the first time */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 
@@ -70,10 +61,8 @@ public class Drivetrain_GyroStraight extends Command {
 		encoders.reset();
 	}
 
-	
 	/** execute ***************************************************************
-	 * Called repeatedly when this Command is scheduled to run
-	 */
+	 * Called repeatedly when this Command is scheduled to run */
 	protected void execute() {
 		double error = goalAngle - gyroscope.getAngle();
 		integralError += error;
@@ -92,35 +81,28 @@ public class Drivetrain_GyroStraight extends Command {
 		lastError = error;
 	}
 	
-	
 	/** isFinished ************************************************************	
-	 * Make this return true when this Command no longer needs to run execute()
-	 */
+	 * Make this return true when this Command no longer needs to run execute() */
 	protected boolean isFinished() {
 		boolean leftGoalReached = encoders.getLeftPosition() > goalDistance;
 		boolean rightGoalReached = encoders.getRightPosition() > goalDistance;
 		return leftGoalReached || rightGoalReached;
 	}
 
-	
 	/** end *******************************************************************
-	 * Called once after isFinished returns true
-	 */
+	 * Called once after isFinished returns true */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
 		terminate();
 	}
 
-	
 	/** interrupted ***********************************************************
 	 * Called when another command which requires one or more of the same
-	 * subsystems is scheduled to run
-	 */
+	 * subsystems is scheduled to run */
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
 		terminate();
 	}
-	
 	
 	/** Graceful End **********************************************************/
 	private void terminate() {

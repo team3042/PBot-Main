@@ -5,14 +5,12 @@ import org.usfirst.frc.team3042.lib.Log;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 /** RobotMap ******************************************************************
- * The robot configuration file.
- */
+ * The robot configuration file. */
 public class RobotMap {
 	/** Robot Size Parameters *************************************************
 	 * The units of the wheel diameter determine the units of the position 
 	 * and speed closed-loop commands. For example, if the diameter is given 
-	 * in inches, position will be in inches and speed in inches per second.
-	 */
+	 * in inches, position will be in inches and speed in inches per second. */
 	public static final double WHEEL_DIAMETER = 4.0;
 	public static final double ROBOT_WIDTH = 15.0;
 	
@@ -32,8 +30,7 @@ public class RobotMap {
 	
 	/** Drivetrain Encoder Settings *******************************************
 	 * Encoder counts per revolution
-	 * In quadrature mode, actual counts will be 4x this; e.g., 360 -> 1440
-	 */
+	 * In quadrature mode, actual counts will be 4x this; e.g., 360 -> 1440 */
 	public static final int COUNTS_PER_REVOLUTION = 1440;
 	// How often the encoders update on the CAN, in milliseconds
 	public static final int ENCODER_FRAME_RATE = 10;
@@ -72,9 +69,7 @@ public class RobotMap {
 	public static final double MAX_SPEED_GYRO = 0.4;
 	/** Gyroscope Settings ****************************************************/
 	public static final double GYROSCOPE_SCALE = 1.0;
-	
-	/** Light Ring Settings ***************************************************/
-	
+		
 	/** OI Settings ***********************************************************/
 	public static final boolean USE_JOYSTICKS = false;
 	public static final double JOYSTICK_DRIVE_SCALE = 0.5;
@@ -83,9 +78,7 @@ public class RobotMap {
 
 	/** PCM channels **********************************************************/
 	public static final int LIGHT_RING_CHANNEL = 1;
-	
-	/** PWM ports *************************************************************/
-	
+		
 	/** Spinner Settings ******************************************************/
 	public static final NeutralMode SPINNER_BRAKE_MODE = NeutralMode.Brake;
 	public static final boolean REVERSE_SPINNER = false;
@@ -118,11 +111,6 @@ public class RobotMap {
 	public static final int SPINNER_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final int SPINNER_CRUISE = 500; // RPM
 	public static final int SPINNER_ACCEL = 500; // RPM per sec
-	
-	/** SPI ports *************************************************************/
-	// note that the Gyroscope uses the myRIO Expansion Port (MXP) and is defined in the SPI class (edu.wpi.first.wpilibj.SPI)
-	// notes for dummies: the MXP is the big boy smack center of the RoboRio (where the gyro ALWAYS goes);
-	// see http://www.ni.com/pdf/manuals/374474a.pdf for additional info on the RoboRio
 	
 	/** USB ports *************************************************************/					
 	public static final int USB_JOYSTICK_LEFT = 0;

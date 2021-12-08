@@ -7,20 +7,16 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-
 /** LightRing *****************************************************************
- * Control of the LED ring for the camera.
- */
+ * Control of the LED ring */
 public class LightRing extends Subsystem {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_LIGHT_RING;
 	private static final int LIGHT_RING_CHANNEL = RobotMap.LIGHT_RING_CHANNEL;
 	
-	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	Solenoid lightRing = new Solenoid(LIGHT_RING_CHANNEL);
-	
 	
 	/** LightRing *************************************************************/
 	public LightRing() {
@@ -28,14 +24,11 @@ public class LightRing extends Subsystem {
 		off();
 	}
 	
-	
 	/** initDefaultCommand ****************************************************
-	 * Set the default command for the subsystem.
-	 */
+	 * Set the default command for the subsystem. */
 	public void initDefaultCommand() {
 		// setDefaultCommand(new ExampleCommand());
 	}
-	
 	
 	/** Command Controls ******************************************************/
 	public void on() {

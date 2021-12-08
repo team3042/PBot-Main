@@ -9,10 +9,8 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
-
 /** Drivetrain_GyroTurn *******************************************************
- * Command for turning in place to a set angle.
- */
+ * Command for turning in place to a set angle. */
 public class Drivetrain_GyroTurn extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_GYROSCOPE;
@@ -22,25 +20,17 @@ public class Drivetrain_GyroTurn extends Command {
 	private static final double ANGLE_TOLERANCE = RobotMap.ANGLE_TOLERANCE;
 	private static final double MAX_SPEED = RobotMap.MAX_SPEED_GYRO;
 	
-	
 	/** Instance Variables ****************************************************/
 	Drivetrain drivetrain = Robot.drivetrain;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(drivetrain));
 	Gyroscope gyroscope = Robot.gyroscope;
 	double lastError, integralError, goalAngle;
 	
-	
 	/** Drivetrain_GyroTurn *************************************************** 
-	 * 
 	 * Required subsystems will cancel commands when this command is run.
-	 * 
 	 * distance is given in physical units matching the wheel diameter unit
-	 * 
 	 * speed is given in physical units per second. The physical units should 
-	 * match that of the Wheel diameter.
-	 * 
-	 * @param angle (degrees)
-	 */
+	 * match that of the Wheel diameter. */
 	public Drivetrain_GyroTurn(double angle) {
 		log.add("Constructor", Log.Level.TRACE);
 		requires(drivetrain);
@@ -48,10 +38,8 @@ public class Drivetrain_GyroTurn extends Command {
 		goalAngle = angle;
 	}
 	
-	
 	/** initialize ************************************************************
-	 * Called just before this Command runs the first time
-	 */
+	 * Called just before this Command runs the first time */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		drivetrain.stop();
@@ -59,11 +47,9 @@ public class Drivetrain_GyroTurn extends Command {
 		integralError = 0.0;
 		gyroscope.reset();
 	}
-
 	
 	/** execute ***************************************************************
-	 * Called repeatedly when this Command is scheduled to run
-	 */
+	 * Called repeatedly when this Command is scheduled to run */
 	protected void execute() {
 		double error = goalAngle - gyroscope.getAngle();
 		integralError += error;
@@ -85,33 +71,26 @@ public class Drivetrain_GyroTurn extends Command {
 		lastError = error;
 	}
 	
-	
 	/** isFinished ************************************************************	
-	 * Make this return true when this Command no longer needs to run execute()
-	 */
+	 * Make this return true when this Command no longer needs to run execute() */
 	protected boolean isFinished() {
 		return Math.abs(lastError) < ANGLE_TOLERANCE;
 	}
 
-	
 	/** end *******************************************************************
-	 * Called once after isFinished returns true
-	 */
+	 * Called once after isFinished returns true */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
 		terminate();
 	}
 
-	
 	/** interrupted ***********************************************************
 	 * Called when another command which requires one or more of the same
-	 * subsystems is scheduled to run
-	 */
+	 * subsystems is scheduled to run */
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
 		terminate();
 	}
-	
 	
 	/** Graceful End **********************************************************/
 	private void terminate() {

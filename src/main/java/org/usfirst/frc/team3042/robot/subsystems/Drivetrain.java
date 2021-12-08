@@ -11,10 +11,8 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-
 /** Drivetrain ****************************************************************
- * The drivetrain subsystem for the robot.
- */
+ * The drivetrain subsystem for the robot. */
 public class Drivetrain extends Subsystem {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_DRIVETRAIN;
@@ -24,23 +22,18 @@ public class Drivetrain extends Subsystem {
 	private static final boolean REVERSE_LEFT_MOTOR = RobotMap.REVERSE_LEFT_MOTOR;
 	private static final boolean REVERSE_RIGHT_MOTOR = RobotMap.REVERSE_RIGHT_MOTOR;	
 	
-	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	TalonSRX leftMotor = new TalonSRX(CAN_LEFT_MOTOR);
 	TalonSRX rightMotor = new TalonSRX(CAN_RIGHT_MOTOR);
 	DrivetrainEncoders encoders;
-	DrivetrainAuton auton;
-
 	
 	/** Drivetrain ************************************************************
-	 * Set up the talons for desired behavior.
-	 */
+	 * Set up the talons for desired behavior. */
 	public Drivetrain() {
 		log.add("Constructor", LOG_LEVEL);
 		
 		encoders = new DrivetrainEncoders(leftMotor, rightMotor);
-		auton = new DrivetrainAuton(leftMotor, rightMotor, encoders);
 		
 		initMotor(leftMotor, REVERSE_LEFT_MOTOR);
 		initMotor(rightMotor, REVERSE_RIGHT_MOTOR);
@@ -50,14 +43,11 @@ public class Drivetrain extends Subsystem {
 		motor.setInverted(reverse); 	// affects percent Vbus mode
 	}
 	
-	
 	/** initDefaultCommand ****************************************************
-	 * Set the default command for the subsystem.
-	 */
+	 * Set the default command for the subsystem. */
 	public void initDefaultCommand() {
 		setDefaultCommand(new Drivetrain_TankDrive());
 	}
-	
 	
 	/** Methods for setting the motors in Percent Vbus mode *******************/
 	public void setPower(double leftPower, double rightPower) {
@@ -76,12 +66,8 @@ public class Drivetrain extends Subsystem {
 		return power;
 	}
 	
-	
-	/** Provide commands access to the encoders and autonomous ****************/
+	/** Provide commands access to the encoders ****************/
 	public DrivetrainEncoders getEncoders() {
 		return encoders;
-	}
-	public DrivetrainAuton getAuton() {
-		return auton;
 	}
 }
