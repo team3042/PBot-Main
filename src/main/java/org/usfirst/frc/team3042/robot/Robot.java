@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
+import org.usfirst.frc.team3042.robot.commands.AutonomousMode_Default;
 import org.usfirst.frc.team3042.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.ExampleSubsystem;
@@ -58,7 +59,7 @@ public class Robot extends TimedRobot {
 		// camera2.setFPS(15);
 
 		oi = new OI();
-		chooser.setDefaultOption("Default Auto", new ExampleCommand());
+		chooser.setDefaultOption("Default Auto", new AutonomousMode_Default());
 		chooser.addOption("My Auto", new ExampleCommand());
 		SmartDashboard.putData("Auto Mode", chooser);
 	}
