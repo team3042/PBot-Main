@@ -1,8 +1,8 @@
 package org.usfirst.frc.team3042.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 
 /** Spinner_SetPosition *******************************************************/
-public class Spinner_SetPosition extends Command {
+public class Spinner_SetPosition extends CommandBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SPINNER_CLOSED_LOOP;
 	private static final double DEFAULT_POSITION = RobotMap.SPINNER_DEFAULT_POSITION;
@@ -27,7 +27,7 @@ public class Spinner_SetPosition extends Command {
 	 * Unit for position is revolutions, relative to the current zero position. */
 	public Spinner_SetPosition(double position) {
 		log.add("Constructor", Log.Level.TRACE);
-		requires(spinner);
+		addRequirements(spinner);
 
 		this.position = position;
 	}
@@ -39,7 +39,7 @@ public class Spinner_SetPosition extends Command {
 
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time */
-	protected void initialize() {
+	public void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		
 		if (getFromDash) {
@@ -51,11 +51,11 @@ public class Spinner_SetPosition extends Command {
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run */
-	protected void execute() {}
+	public void execute() {}
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute() */
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 	}
 

@@ -6,11 +6,11 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.util.sendable.SendableRegistry;
 
 /** SpinnerClosedLoop *********************************************************/
-public class SpinnerClosedLoop extends Subsystem {
+public class SpinnerClosedLoop extends SubsystemBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SPINNER_CLOSED_LOOP;
 	private static final int POSITION_PROFILE = RobotMap.SPINNER_POSITION_PROFILE;

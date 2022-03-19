@@ -7,11 +7,11 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.util.sendable.SendableRegistry;
 
 /** Spinner *******************************************************************/
-public class Spinner extends Subsystem {
+public class Spinner extends SubsystemBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SPINNER;
 	private static final int CAN_SPINNER = RobotMap.CAN_SPINNER;

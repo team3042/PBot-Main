@@ -11,10 +11,10 @@ import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** Robot *********************************************************************
  * The VM is configured to automatically run this class, and to call the
@@ -35,8 +35,8 @@ public class Robot extends TimedRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 
-	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<Command>();
+	CommandBase autonomousCommand;
+	SendableChooser<CommandBase> chooser = new SendableChooser<CommandBase>();
 
 	UsbCamera camera1;
 	// UsbCamera camera2;
@@ -86,7 +86,7 @@ public class Robot extends TimedRobot {
 
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null) {
-			autonomousCommand.start();
+			autonomousCommand.schedule();
 		}
 	}
 

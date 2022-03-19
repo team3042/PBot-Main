@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.util.sendable.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
@@ -12,7 +12,7 @@ import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 
 /** Drivetrain_TankDrive ******************************************************
  * Using joystick input to drive the robot. */
-public class Drivetrain_TankDrive extends Command {
+public class Drivetrain_TankDrive extends CommandBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_DRIVETRAIN;
 	private static final double ACCELERATION_MAX = RobotMap.ACCELERATION_MAX;
@@ -29,12 +29,12 @@ public class Drivetrain_TankDrive extends Command {
 	public Drivetrain_TankDrive() {
 		log.add("Constructor", Log.Level.TRACE);
 		
-		requires(drivetrain);
+		addRequirements(drivetrain);
 	}
 
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time */
-	protected void initialize() {
+	public void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 				
 		drivetrain.stop();
@@ -47,7 +47,7 @@ public class Drivetrain_TankDrive extends Command {
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run */
-	protected void execute() {
+	public void execute() {
 		double leftPower = oi.getDriveLeft();
 		double rightPower = oi.getDriveRight();
 		
@@ -77,7 +77,7 @@ public class Drivetrain_TankDrive extends Command {
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute() */
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 	}
 

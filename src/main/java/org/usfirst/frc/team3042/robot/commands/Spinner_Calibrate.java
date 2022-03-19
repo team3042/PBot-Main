@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.util.sendable.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
@@ -12,7 +12,7 @@ import org.usfirst.frc.team3042.robot.subsystems.SpinnerEncoder;
 
 /** Spinner_Calibrate *********************************************************
  * Determine the F-Gain for the spinner */
-public class Spinner_Calibrate extends Command {
+public class Spinner_Calibrate extends CommandBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SPINNER_CLOSED_LOOP;
 	private static final double CALIBRATE_POWER = RobotMap.SPINNER_CALIBRATE_POWER;
@@ -31,12 +31,12 @@ public class Spinner_Calibrate extends Command {
 	public Spinner_Calibrate() {
 		log.add("Constructor", Log.Level.TRACE);
 		
-		requires(spinner);
+		addRequirements(spinner);
 	}
 	
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time */
-	protected void initialize() {
+	public void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		
 		timer.start();
@@ -48,7 +48,7 @@ public class Spinner_Calibrate extends Command {
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run */
-	protected void execute() {
+	public void execute() {
 		if (timer.get() > CALIBRATE_TIME) {
 			rpmSum += encoder.getSpeed();
 			count ++;
@@ -57,7 +57,7 @@ public class Spinner_Calibrate extends Command {
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute() */
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return count >= COUNT_AVERAGE;
 	}
 

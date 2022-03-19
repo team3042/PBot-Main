@@ -1,8 +1,8 @@
 package org.usfirst.frc.team3042.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.SpinnerEncoder;
 
 /** SpinnerEncoder_Dashboard **************************************************/
-public class SpinnerEncoder_Dashboard extends Command {
+public class SpinnerEncoder_Dashboard extends CommandBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SPINNER_ENCODER;
 	
@@ -24,25 +24,25 @@ public class SpinnerEncoder_Dashboard extends Command {
 		log.add("Constructor", Log.Level.TRACE);
 		
 		encoder.reset();
-		requires(encoder);
+		addRequirements(encoder);
 	}
 
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time */
-	protected void initialize() {
+	public void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 	}
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run */
-	protected void execute() {
+	public void execute() {
 		SmartDashboard.putNumber("Spinner Revolutions", encoder.getPosition());
 		SmartDashboard.putNumber("Spinner Speed RPM",  encoder.getSpeed());
 	}
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute() */
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 	}
 	

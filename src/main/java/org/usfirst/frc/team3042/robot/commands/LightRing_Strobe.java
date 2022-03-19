@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.util.sendable.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.LightRing;
 
 /** LightRing_Strobe **************************************************************/
-public class LightRing_Strobe extends Command {
+public class LightRing_Strobe extends CommandBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_LIGHT_RING;
 	private static final double STROBE_INTERVAL = RobotMap.STROBE_INTERVAL;
@@ -21,17 +21,17 @@ public class LightRing_Strobe extends Command {
 	Timer timer = new Timer();
 	double currentTime;
 	
-	/** LightRing_On **********************************************************/
+	/** LightRing_Strobe **********************************************************/
 	public LightRing_Strobe() {
 		log.add("Constructor", Log.Level.TRACE);
 		
-		requires(lightRing);
+		addRequirements(lightRing);
 		lightRing.off();
 	}
 	
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time */
-	protected void initialize() {
+	public void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		currentTime = 0.0;
 		timer.start();
@@ -39,7 +39,7 @@ public class LightRing_Strobe extends Command {
 	
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run */
-	protected void execute() {
+	public void execute() {
 		if (timer.get() >= STROBE_INTERVAL + currentTime)
 		{
 			lightRing.toggle();
@@ -49,7 +49,7 @@ public class LightRing_Strobe extends Command {
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute() */
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 	}
 

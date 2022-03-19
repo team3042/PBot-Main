@@ -63,12 +63,12 @@ public class OI {
 		}
 		
 		/** PBOT Controls *****************************************************/
-		gamepad.A.toggleWhenPressed(new LightRing_On());
+		gamepad.A.toggleWhenActive(new LightRing_On());
 		gamepad.X.toggleWhenPressed(new LightRing_Strobe());
 
 		gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 
-		gamepad.B.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
+		gamepad.B.whenActive(new Drivetrain_GyroStraight(12.0, 24.0));
 		gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
 	}
 	

@@ -5,12 +5,12 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.util.sendable.SendableRegistry;
 
 /** LightRing *****************************************************************
  * Control of the LED ring */
-public class LightRing extends Subsystem {
+public class LightRing extends SubsystemBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_LIGHT_RING;
 	private static final int LIGHT_RING_CHANNEL = RobotMap.LIGHT_RING_CHANNEL;

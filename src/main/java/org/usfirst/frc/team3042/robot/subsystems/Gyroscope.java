@@ -4,12 +4,12 @@ import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.util.sendable.SendableRegistry;
 
 /** Gyroscope *****************************************************************
  * Gyroscope subsystem */
-public class Gyroscope extends Subsystem {
+public class Gyroscope extends SubsystemBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_GYROSCOPE;
 	private static final double GYROSCOPE_SCALE = RobotMap.GYROSCOPE_SCALE;

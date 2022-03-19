@@ -1,6 +1,6 @@
 package org.usfirst.frc.team3042.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.util.sendable.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.subsystems.ExampleSubsystem;
 
 /** ExampleCommand ************************************************************
  * An example command template. */
-public class ExampleCommand extends Command {
+public class ExampleCommand extends CommandBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_EXAMPLE_SUBSYSTEM;
 	
@@ -23,22 +23,22 @@ public class ExampleCommand extends Command {
 	public ExampleCommand() {
 		log.add("Constructor", Log.Level.TRACE);
 		
-		requires(exampleSubsystem);
+		addRequirements(exampleSubsystem);
 	}
 
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time */
-	protected void initialize() {
+	public void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 	}
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run */
-	protected void execute() {}
+	public void execute() {}
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute() */
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 	}
 

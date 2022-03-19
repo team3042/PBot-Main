@@ -1,6 +1,6 @@
 package org.usfirst.frc.team3042.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.util.sendable.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 
 /** Spinner_Drive *************************************************************/
-public class Spinner_Drive extends Command {
+public class Spinner_Drive extends CommandBase {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SPINNER;
 	
@@ -24,12 +24,12 @@ public class Spinner_Drive extends Command {
 	public Spinner_Drive() {
 		log.add("Constructor", Log.Level.TRACE);
 		
-		requires(spinner);
+		addRequirements(spinner);
 	}
 
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time */
-	protected void initialize() {
+	public void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		
 		spinner.stop();
@@ -37,7 +37,7 @@ public class Spinner_Drive extends Command {
 	
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run */
-	protected void execute() {
+	public void execute() {
 		double power = oi.getTriggerDifference();
 		
 		spinner.setPower(power);
@@ -45,7 +45,7 @@ public class Spinner_Drive extends Command {
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute() */
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 	}
 	
