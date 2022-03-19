@@ -8,7 +8,7 @@ import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 import org.usfirst.frc.team3042.robot.subsystems.LightRing;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 
-import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -49,8 +49,8 @@ public class Robot extends TimedRobot {
 
 		/*Code For Cameras (Microsoft Lifecams)*/
 
-		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
-		// camera2 = CameraServer.getInstance().startAutomaticCapture(1);
+		camera1 = CameraServer.startAutomaticCapture(0);
+		// camera2 = CameraServer.startAutomaticCapture(1);
 
 		camera1.setResolution(640, 480);
 		camera1.setFPS(15);

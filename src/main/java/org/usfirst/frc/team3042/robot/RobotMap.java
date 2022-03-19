@@ -1,8 +1,8 @@
 package org.usfirst.frc.team3042.robot;
 
-import org.usfirst.frc.team3042.lib.Log;
-
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+
+import org.usfirst.frc.team3042.lib.Log;
 
 /** RobotMap ******************************************************************
  * The robot configuration file. */
@@ -24,7 +24,7 @@ public class RobotMap {
 	public static final boolean REVERSE_LEFT_MOTOR = true;
 	public static final boolean REVERSE_RIGHT_MOTOR = false;
 	// Maximum Acceleration given in power per second
-	public static final double ACCELERATION_MAX = 1.5;
+	public static final double ACCELERATION_MAX = 2;
 	public static final double kF_DRIVE_LEFT = 0.1817180616740088;
 	public static final double kF_DRIVE_RIGHT = 0.16686239968682717;
 	
@@ -36,28 +36,7 @@ public class RobotMap {
 	public static final int ENCODER_FRAME_RATE = 10;
 	public static final boolean SENSOR_PHASE_LEFT = false;
 	public static final boolean SENSOR_PHASE_RIGHT = false;
-	
-	/** Drivetrain Autonomous Settings ****************************************/
-	public static final int AUTON_PROFILE = 0;
-	public static final double kP_AUTON = 0.4;
-	public static final double kI_AUTON = 0.0;
-	public static final double kD_AUTON = 0.8;
-	public static final int I_ZONE_AUTON = 0;
-	// The rate of pushing motion profile points to the talon, in ms
-	public static final int AUTON_FRAME_RATE = 10;
-	// Parameters for calibrating the F-gain
-	public static final int AUTON_COUNT_AVERAGE = 20;
-	public static final double AUTON_CALIBRATE_POWER = 0.5;
-	public static final double AUTON_CALIBRATE_TIME = 5.0; // seconds
-	// Parameters for motion profile driving
-	public static final double AUTON_ACCEL_TIME = 1.0; // time in sec
-	public static final int AUTON_BUFFER_TRIGGER = 10;
-	public static final int AUTON_HEADING = 0; // unimplemented feature; set to zero
-	public static final double AUTON_MAX_ACCEL = 3.0; // rev per sec per sec
-	public static final int AUTON_DT_MS = 30;
-	public static final double AUTON_DT_SEC = (double)AUTON_DT_MS / 1000.0;
 	public static final int AUTON_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double AUTON_SMOOTH_TIME = 0.1; // time in sec
 	public static final int AUTON_TIMEOUT = 0; // timeout in ms; set to zero
 	
 	/** Drivetrain Gyro Drive Settings ****************************************/
@@ -83,6 +62,9 @@ public class RobotMap {
 	public static final NeutralMode SPINNER_BRAKE_MODE = NeutralMode.Brake;
 	public static final boolean REVERSE_SPINNER = false;
 	
+	/** Lightring Settings ******************************************************/
+	public static final double STROBE_INTERVAL = 0.08;
+
 	/** Spinner Encoder Settings **********************************************/
 	public static final int SPINNER_ENCODER_FRAME_RATE = 10;
 	public static final int SPINNER_ENCODER_COUNTS_PER_REV = 4096;
@@ -103,7 +85,7 @@ public class RobotMap {
 	public static final double kF_SPINNER_SPEED = 0.036;
 	public static final int I_ZONE_SPINNER_SPEED = 0;
 	public static final double SPINNER_DEFAULT_POSITION = 1.0; // revolutions
-	public static final double SPINNER_DEFAULT_SPEED = 700; // RPM
+	public static final double SPINNER_DEFAULT_SPEED = 2600; // RPM
 	public static final double SPINNER_CALIBRATE_POWER = 0.2;
 	public static final double SPINNER_CALIBRATE_TIME = 10.0; // seconds
 	public static final int SPINNER_COUNT_AVERAGE = 20;
@@ -132,7 +114,6 @@ public class RobotMap {
 	/** Subsystems ************************************************************/
 	public static final Log.Level	LOG_DRIVETRAIN				= Log.Level.TRACE;
 	public static final Log.Level	LOG_DRIVETRAIN_ENCODERS 	= Log.Level.DEBUG;
-	public static final Log.Level	LOG_DRIVETRAIN_AUTON		= Log.Level.DEBUG;
 	public static final Log.Level	LOG_SPINNER					= Log.Level.TRACE;
 	public static final Log.Level	LOG_SPINNER_ENCODER			= Log.Level.TRACE;
 	public static final Log.Level	LOG_SPINNER_CLOSED_LOOP		= Log.Level.DEBUG;

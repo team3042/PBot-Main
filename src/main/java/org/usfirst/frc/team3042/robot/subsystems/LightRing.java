@@ -3,9 +3,10 @@ package org.usfirst.frc.team3042.robot.subsystems;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
+import edu.wpi.first.util.sendable.SendableRegistry;
 
 /** LightRing *****************************************************************
  * Control of the LED ring */
@@ -16,7 +17,7 @@ public class LightRing extends Subsystem {
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-	Solenoid lightRing = new Solenoid(LIGHT_RING_CHANNEL);
+	Solenoid lightRing = new Solenoid(PneumaticsModuleType.CTREPCM, LIGHT_RING_CHANNEL);
 	
 	/** LightRing *************************************************************/
 	public LightRing() {
@@ -36,5 +37,12 @@ public class LightRing extends Subsystem {
 	}
 	public void off() {
 		lightRing.set(false);
+	}
+
+	public void toggle() {
+		if (lightRing.get() == true)
+			lightRing.set(false);
+		else
+			lightRing.set(true);
 	}
 }

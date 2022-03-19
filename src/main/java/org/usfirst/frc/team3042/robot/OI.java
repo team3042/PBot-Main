@@ -4,6 +4,7 @@ import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 import org.usfirst.frc.team3042.robot.commands.LightRing_On;
+import org.usfirst.frc.team3042.robot.commands.LightRing_Strobe;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 
@@ -63,10 +64,11 @@ public class OI {
 		
 		/** PBOT Controls *****************************************************/
 		gamepad.A.toggleWhenPressed(new LightRing_On());
+		gamepad.X.toggleWhenPressed(new LightRing_Strobe());
 
 		gamepad.RB.toggleWhenPressed(new Spinner_SetSpeed());
 
-		gamepad.X.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
+		gamepad.B.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
 		gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
 	}
 	
