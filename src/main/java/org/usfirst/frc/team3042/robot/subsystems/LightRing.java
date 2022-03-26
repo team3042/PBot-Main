@@ -18,11 +18,15 @@ public class LightRing extends Subsystem {
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	Solenoid lightRing = new Solenoid(PneumaticsModuleType.CTREPCM, LIGHT_RING_CHANNEL);
+	public boolean strobe = false;
 	
 	/** LightRing *************************************************************/
 	public LightRing() {
 		log.add("Constructor", LOG_LEVEL);
 		off();
+	}
+	public boolean getStrobeStatus() {
+		return strobe;
 	}
 	
 	/** initDefaultCommand ****************************************************
@@ -34,15 +38,21 @@ public class LightRing extends Subsystem {
 	/** Command Controls ******************************************************/
 	public void on() {
 		lightRing.set(true);
+		strobe = true;
 	}
 	public void off() {
 		lightRing.set(false);
+		strobe = false;
 	}
 
 	public void toggle() {
-		if (lightRing.get() == true)
+		if (lightRing.get() == true) {
 			lightRing.set(false);
-		else
+			strobe = false;
+		}
+		else {
 			lightRing.set(true);
+			strobe = true;
+		}
 	}
 }

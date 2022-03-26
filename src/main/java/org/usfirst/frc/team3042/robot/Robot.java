@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
 		// camera2 = CameraServer.startAutomaticCapture(1);
 
 		camera1.setResolution(640, 480);
-		camera1.setFPS(15);
+		camera1.setFPS(24);
 		// camera2.setResolution(1280, 720);
 		// camera2.setFPS(15);
 
@@ -95,6 +95,7 @@ public class Robot extends TimedRobot {
 	 * This function is called periodically during autonomous */
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putBoolean("STROBE", lightRing.getStrobeStatus());
 	}
 	
 	/** teleopInit ************************************************************
@@ -115,5 +116,6 @@ public class Robot extends TimedRobot {
 	 * This function is called periodically during operator control */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putBoolean("STROBE", lightRing.getStrobeStatus());
 	}
 }
