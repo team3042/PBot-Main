@@ -74,6 +74,7 @@ public class OI {
 		gamepad.RB.whenReleased(new Drivetrain_Scale_Toggle());
 
 		gamepad.LB.toggleWhenPressed(new Spinner_SetSpeed());
+		gamepad.LB.toggleWhenPressed(new LightRing_Strobe());
 
 
 		gamepad.B.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
