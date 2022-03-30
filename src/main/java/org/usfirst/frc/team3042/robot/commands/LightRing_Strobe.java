@@ -20,10 +20,22 @@ public class LightRing_Strobe extends Command {
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(lightRing));
 	Timer timer = new Timer();
 	double currentTime;
+	double interval;
 	
 	/** LightRing_On **********************************************************/
 	public LightRing_Strobe() {
 		log.add("Constructor", Log.Level.TRACE);
+
+		interval = STROBE_INTERVAL;
+		
+		requires(lightRing);
+		lightRing.off();
+	}
+
+	public LightRing_Strobe(double strobeInterval) {
+		log.add("Constructor", Log.Level.TRACE);
+
+		interval = strobeInterval;
 		
 		requires(lightRing);
 		lightRing.off();
@@ -40,7 +52,7 @@ public class LightRing_Strobe extends Command {
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run */
 	protected void execute() {
-		if (timer.get() >= STROBE_INTERVAL + currentTime)
+		if(timer.get() >= interval + currentTime)
 		{
 			lightRing.toggle();
 			currentTime = timer.get();
