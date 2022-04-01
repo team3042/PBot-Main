@@ -1,7 +1,6 @@
 package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.util.sendable.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;

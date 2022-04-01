@@ -69,17 +69,19 @@ public class OI {
 		
 		/** PBOT Controls *****************************************************/
 		gamepad.A.toggleWhenPressed(new LightRing_On());
-		gamepad.X.toggleWhenPressed(new LightRing_Strobe());
+		gamepad.B.toggleWhenPressed(new LightRing_Strobe());
+		gamepad.X.toggleWhenPressed(new Drivetrain_GyroStraight(16.0, 100.0)); // distance, speed
+		gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90)); // degrees
 
 		gamepad.RB.whenPressed(new Drivetrain_Scale_Toggle());
 		gamepad.RB.whenReleased(new Drivetrain_Scale_Toggle());
-
+		
 		gamepad.LB.toggleWhenPressed(new Spinner_SetSpeed());
-		gamepad.LB.toggleWhenPressed(new LightRing_Strobe());
+		gamepad.LT.whenActive(new Spinner_SetSpeed());
+		gamepad.LT.whenActive(new LightRing_Strobe());
+		gamepad.LT.whenInactive(new LightRing_Strobe());
 
-
-		gamepad.B.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
-		gamepad.Y.whenPressed(new Path());
+		gamepad.Start.whenPressed(new Path());
 	}
 	
 	/** Access to the driving axes values *************************************
