@@ -18,11 +18,16 @@ public class RobotMap {
 	public static final int CAN_LEFT_MOTOR = 3;
 	public static final int CAN_RIGHT_MOTOR = 9;
 	public static final int CAN_SPINNER = 10;
+
+	/** DIO channels **********************************************************/
+	public static final int DIO_ULTRASONIC_PING = 8;
+	public static final int DIO_ULTRASONIC_ECHO = 9;
 	
 	/** Drivetrain Settings ***************************************************/
 	public static final NeutralMode DRIVETRAIN_BRAKE_MODE = NeutralMode.Brake;
 	public static final boolean REVERSE_LEFT_MOTOR = true;
 	public static final boolean REVERSE_RIGHT_MOTOR = false;
+	public static final double DISTANCE = 5;
 	// Maximum Acceleration given in power per second
 	public static final double ACCELERATION_MAX = 2;
 	public static final double kF_DRIVE_LEFT = 0.1817180616740088;
@@ -121,4 +126,5 @@ public class RobotMap {
 	public static final Log.Level	LOG_GYROSCOPE				= Log.Level.DEBUG;
 	public static final Log.Level	LOG_LIGHT_RING				= Log.Level.TRACE;
 	public static final Log.Level	LOG_EXAMPLE_SUBSYSTEM 		= Log.Level.TRACE;
+	public static final Log.Level	LOG_ULTRASONIC_SENSOR 		= Log.Level.TRACE;
 }
