@@ -1,12 +1,12 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
+import org.usfirst.frc.team3042.robot.commands.DriveTrain_Path;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_Scale_Toggle;
 import org.usfirst.frc.team3042.robot.commands.LightRing_On;
 import org.usfirst.frc.team3042.robot.commands.LightRing_Strobe;
-import org.usfirst.frc.team3042.robot.commands.Path;
 import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
 import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 
@@ -81,7 +81,8 @@ public class OI {
 		gamepad.LT.whenActive(new LightRing_Strobe());
 		gamepad.LT.whenInactive(new LightRing_Strobe());
 
-		gamepad.Start.whenPressed(new Path());
+		gamepad.Start.whenPressed(new DriveTrain_Path());
+		gamepad.Back.toggleWhenPressed(new Drivetrain_GyroTurn(3600));
 	}
 	
 	/** Access to the driving axes values *************************************
