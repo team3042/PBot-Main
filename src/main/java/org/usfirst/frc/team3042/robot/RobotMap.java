@@ -103,7 +103,7 @@ public class RobotMap {
 	/** USB ports *************************************************************/					
 	public static final int USB_JOYSTICK_LEFT = 0;
 	public static final int USB_JOYSTICK_RIGHT = 1;
-	public static final int USB_GAMEPAD = 0;
+	public static final int USB_GAMEPAD = 2;
 
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
